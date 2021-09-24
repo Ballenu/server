@@ -17,7 +17,6 @@
 
 /*PHP*/
 <?PHP
-    if($_POST['n'] == random_int(1, 5)){
-        echo "<p style='color: green;'>¡Enhorabuena! Has adivinado el número.</p>";
-    } else echo "<p style='color: red;'>¡Lastima! No has adivinado el número.</p>";
+    if($_POST['n'] == random_int(1, 5)) echo "<p style='color: green;'>¡Enhorabuena! Has adivinado el número.</p>";
+    else echo "<p style='color: red;'>¡Lastima! No has adivinado el número.</p>";
 ?>
