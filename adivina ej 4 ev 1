@@ -1,0 +1,23 @@
+/*HTML*/
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <body>
+        <form action = "/ev1/adivina.php" method = "POST" enctype="multipart/form-data">
+            <label>Piensa un número entre el 1 y el 5...</label>
+            <input type="number" name = "n">
+            <input type = "submit" value = "Submit">
+        </form>
+    </body>
+</html>
+
+/*PHP*/
+<?PHP
+    if($_POST['n'] == random_int(1, 5)){
+        echo "<p>¡Enhorabuena! Has adivinado el número.</p>";
+    } else echo "<p>¡Lastima! No has adivinado el número.</p>";
+?>
