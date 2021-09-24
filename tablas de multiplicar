@@ -1,0 +1,23 @@
+<?php
+    const ntables = 10;
+    $result = 0;
+
+    echo "<b> TABLAS DE MULTIPLICAR </br>";
+    echo "<br>";
+    echo "<br>";
+
+    for ($i = 1; $i <= ntables; $i++){
+        echo "<br> TABLA DEL $i </br>";
+        echo "<br>";
+
+        for($j = 1; $j <= 10; $j++){
+            $result += $i;
+            echo "$i x $j = $result":
+            echo "<br>":
+        }
+
+        echo "<br>";
+
+        $result = 0:        
+    }
+?>
