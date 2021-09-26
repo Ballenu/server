@@ -1,23 +1,37 @@
-<?php
-    const ntables = 10;
-    $result = 0;
+/* HTML */
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <meta charset = "utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE-edge">
+      <link rel ="stylesheet" href = "tmcss.css">
+    </head>
+    <body>
+        <h1>TABLAS DE MULTIPLICAR</h1>
+        <br>
 
-    echo "<b> TABLAS DE MULTIPLICAR </br>";
-    echo "<br>";
-    echo "<br>";
+        <?php
+        $nTablas = 10;
+        $limMult = 10;
 
-    for ($i = 1; $i <= ntables; $i++){
-        echo "<br> TABLA DEL $i </br>";
-        echo "<br>";
+            for($i = 1; $i <= $nTablas; $i++){
+                echo "<table style='width: 10%'>";
+                echo "<h3>Tabla del $i</h3>";
+                for($j = 1; $j <= $limMult; $j++) {
+                    echo "<tr>";
+                    echo "<td>$i x $j</td>";
+                    echo "<td>";
+                    echo ($i * $j);
+                    echo "</td>";
+                    echo "</tr>";
+                }
+            }
+        ?>
+    </body>
+</html>
 
-        for($j = 1; $j <= 10; $j++){
-            $result += $i;
-            echo "$i x $j = $result":
-            echo "<br>":
-        }
-
-        echo "<br>";
-
-        $result = 0:        
-    }
-?>
+/* CSS */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
