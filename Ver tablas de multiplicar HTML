@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>TABLAS DE MULTIPLICAR</h1>
+        <a href="/tablasmult.php" name = "uno">Ver tabla del 1</a><br><br>
+        <a href="/tablasmult.php" name = "dos">Ver tabla del 2</a><br><br>
+        <a href="/tablasmult.php" name = "tres">Ver tabla del 3</a><br><br>
+        <a href="/tablasmult.php" name = "cuatro">Ver tabla del 4</a><br><br>
+        <a href="/tablasmult.php" name = "cinco">Ver tabla del 5</a><br><br>
+        <a href="/tablasmult.php" name = "seis">Ver tabla del 6</a><br><br>
+        <a href="/tablasmult.php" name = "siete">Ver tabla del 7</a><br><br>
+        <a href="/tablasmult.php" name = "ocho">Ver tabla del 8</a><br><br>
+        <a href="/tablasmult.php" name = "nueve">Ver tabla del 9</a><br><br>
+        <a href="/tablasmult.php" name = "diez">Ver tabla del 10</a>
+    </body>
+</html>
