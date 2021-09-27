@@ -1,8 +1,8 @@
 <?php
     $limMult = 10;
     
-    for($i = 1; $i <= limMult; $i++){
-        if(isset($_POST["$i"]) $nTabla = $_POST;
+    for($i = 1; $i <= $limMult; $i++){
+        if(isset($_POST["$i"]) $nTabla = $_POST["$i"];
     }
 
     echo "<table style='width: 10%'>";
