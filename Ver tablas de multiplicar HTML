@@ -5,15 +5,15 @@
     </head>
     <body>
         <h1>TABLAS DE MULTIPLICAR</h1>
-        <a href="/tablasmult.php" name = "uno">Ver tabla del 1</a><br><br>
-        <a href="/tablasmult.php" name = "dos">Ver tabla del 2</a><br><br>
-        <a href="/tablasmult.php" name = "tres">Ver tabla del 3</a><br><br>
-        <a href="/tablasmult.php" name = "cuatro">Ver tabla del 4</a><br><br>
-        <a href="/tablasmult.php" name = "cinco">Ver tabla del 5</a><br><br>
-        <a href="/tablasmult.php" name = "seis">Ver tabla del 6</a><br><br>
-        <a href="/tablasmult.php" name = "siete">Ver tabla del 7</a><br><br>
-        <a href="/tablasmult.php" name = "ocho">Ver tabla del 8</a><br><br>
-        <a href="/tablasmult.php" name = "nueve">Ver tabla del 9</a><br><br>
-        <a href="/tablasmult.php" name = "diez">Ver tabla del 10</a>
+        <a href="/tablasmult.php" name = "1">Ver tabla del 1</a><br><br>
+        <a href="/tablasmult.php" name = "2">Ver tabla del 2</a><br><br>
+        <a href="/tablasmult.php" name = "3">Ver tabla del 3</a><br><br>
+        <a href="/tablasmult.php" name = "4">Ver tabla del 4</a><br><br>
+        <a href="/tablasmult.php" name = "5">Ver tabla del 5</a><br><br>
+        <a href="/tablasmult.php" name = "6">Ver tabla del 6</a><br><br>
+        <a href="/tablasmult.php" name = "7">Ver tabla del 7</a><br><br>
+        <a href="/tablasmult.php" name = "8>Ver tabla del 8</a><br><br>
+        <a href="/tablasmult.php" name = "9">Ver tabla del 9</a><br><br>
+        <a href="/tablasmult.php" name = "10">Ver tabla del 10</a>
     </body>
 </html>
