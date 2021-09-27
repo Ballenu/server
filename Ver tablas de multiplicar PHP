@@ -1,0 +1,18 @@
+<?php
+    $limMult = 10;
+    $nTabla = $_POST;
+
+    echo "<table style='width: 10%'>";
+    echo "<h3>Tabla del $nTabla</h3>";
+
+    for($j = 1; $j <= $limMult; $j++) {
+        echo "<tr>";
+        echo "<td>$nTabla x $j</td>";
+        echo "<td>";
+        echo ($nTabla * $j);
+        echo "</td>";
+        echo "</tr>";
+    }
+    
+    echo "</table>";
+?>
