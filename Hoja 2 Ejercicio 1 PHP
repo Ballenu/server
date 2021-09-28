@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="t1c2ej1css.css">
+    </head>
+    <body>
+<?php
+    $mes_introd = $_POST['mes'];
+
+    switch($mes_introd) {
+        case "enero":
+            $nDias = 31;
+            break;
+        case "febrero":
+            $nDias = 28;
+            break;
+        case "marzo":
+            $nDias = 31;
+            break;
+        case "abril":
+            $nDias = 30;
+            break;
+        case "mayo":
+            $nDias = 31;
+            break;
+        case "junio":
+            $nDias = 30;
+            break;
+        case "julio":
+            $nDias = 31;
+            break;
+        case "agosto":
+            $nDias = 31;
+            break;
+        case "septiembre":
+            $nDias = 31;
+            break;
+        case "octubre":
+            $nDias = 31;
+            break;
+        case "noviembre":
+            $nDias = 30;
+            break;
+        case "diciembre":
+            $nDias = 31;
+            break;
+        default:
+            echo "El mes introducido no es válido.";
+    }
+
+    echo "<table>";
+    for($i = 1; $i <= $nDias; $i++){
+        
+    }
+    echo "</table>"
+
+    echo "<a href=/ev1/t1c2ej1.html>Volver</a>"
+?>
+    </body>
+</html>
