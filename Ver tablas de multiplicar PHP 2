@@ -1,18 +1,15 @@
 <?php
     $limMult = 10;
-    
-    for($i = 1; $i <= $limMult; $i++){
-        if(isset($_POST["$i"]) $nTabla = $_POST["$i"];
-    }
+    $nTable = $_GET['tabla'];
 
     echo "<table style='width: 10%'>";
-    echo "<h3>Tabla del $nTabla</h3>";
+    echo "<h3>Tabla del $nTable</h3>";
 
     for($j = 1; $j <= $limMult; $j++) {
         echo "<tr>";
-        echo "<td>$nTabla x $j</td>";
+        echo "<td>$nTable x $j</td>";
         echo "<td>";
-        echo ($nTabla * $j);
+        echo ($nTable * $j);
         echo "</td>";
         echo "</tr>";
     }
