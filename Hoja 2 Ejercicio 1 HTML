@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="t1c2ej1css.css">
+    </head>
+    <body>
+        <form action = "/ev1/t1c2ej1.php" method="POST" enctype="multipart/form-data">
+            <label>Introduce el nombre de un mes</label>
+            <input type="text" name="mes">
+            <input type="submit" value="enviar">
+        </form>
+    </body>
+</html>
