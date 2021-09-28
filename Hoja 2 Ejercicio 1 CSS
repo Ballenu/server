@@ -1,0 +1,12 @@
+input {
+    text-transform: lowercase;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color:rgb(81, 2, 228);
+}
