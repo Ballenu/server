@@ -1,0 +1,29 @@
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 10%;
+}
+
+.en{
+    background-color: rgb(92, 145, 145);
+}
+
+.so {
+    background-color: azure;
+}
+
+h2 {
+    text-transform: uppercase;
+    color: rgb(203, 226, 197);
+    margin-left: 15px;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+a:hover{
+    text-decoration: underline;
+    color:red;
+}
