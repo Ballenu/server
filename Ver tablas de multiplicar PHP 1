@@ -8,8 +8,8 @@
         <ul>
         <?php
         for($i = 1; $i <= 10; $i++){
-            $URL = "tabla.php?tabla=$i";
-            echo "<li><a class='link' href='URL'> TABLA DEL $i</a></li><br>";
+            $URL = "tablasmult.php?tabla=$i";
+            echo "<li><a class='link' href='URL'> Ver tabla del $i</a></li><br>";
         }
         ?>
         </ul>
