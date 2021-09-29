@@ -5,10 +5,13 @@
         <link rel="stylesheet" href="t1c2ej1css.css">
     </head>
     <body>
+    <div class="d1">
         <form action = "/ev1/t1c2ej1.php" method="POST" enctype="multipart/form-data">
-            <label>Introduce el nombre de un mes</label>
-            <input type="text" name="mes">
-            <input type="submit" value="enviar">
+            <label><h1>Introduce el nombre de un mes</h1></label>
+            <input type="text" name="mes" class="m">
+            <br><br>
+            <input type="submit" value="Enviar">
         </form>
+    </div>
     </body>
 </html>
