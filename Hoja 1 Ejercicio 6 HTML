@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <body>
+        <form action = "/ev1/h1ej6.php" method = "POST" enctype="multipart/form-data">
+            <label>Introduzca su nombre</label>
+            <br>
+            <input type="text" name = "nom">
+            <br>
+            <br>
+            <label>Introduzca su nota</label>
+            <br>
+            <input type="number" name = "not">
+            <br>
+            <br>
+            <input type = "submit" value = "Submit" name="submit">
+        </form>
+    </body>
+</html>
