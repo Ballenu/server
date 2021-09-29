@@ -1,0 +1,14 @@
+<?php
+    $notaAl = $_POST['not'];
+    $nombreAl = $_POST['nom'];
+
+    if(isset($_POST['nom'], $_POST['not']) && $notaAl >= 0 && $notaAl <= 10){
+        if($notaAl >= 5){
+            echo "Enhorabuena \"$nombreAl\" has aprobado.";
+        } else {
+            echo "Lo siento \"$nombreAl\" has suspendido.";
+        }
+    } else{
+        echo "Faltan datos o los datos introducidos no son válidos, por favor vuelve a hacer el <a href='/ev1/h1ej6.html'>formulario</a>.";
+    }
+?>
