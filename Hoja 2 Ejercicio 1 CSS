@@ -1,12 +1,46 @@
-input {
+body{
+    text-align: center;
+}
+
+.d1 {
+    width: 20%;
+    background-color: lightslategray;
+    border-radius: 20px;
+    transform: translate(200%, 10%);
+}
+
+.m {
     text-transform: lowercase;
+}
+
+label {
+    color: rgba(0, 0, 0, 0.699);
 }
 
 a {
     color: black;
     text-decoration: none;
+    transition: all 0.2s;
 }
 
 a:hover{
     color:rgb(81, 2, 228);
+    text-transform: uppercase;
+}
+
+table {
+    width: 20%;
+    height: auto;
+    transform: translate(200%);
+}
+table, tr, td{
+    border: 1px solid black;
+}
+
+.back {
+    margin-top: 20px;
+}
+
+h2 {
+    text-transform: uppercase;
 }
