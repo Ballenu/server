@@ -1,0 +1,52 @@
+<?php
+    $nTablas = 10;
+    $limMult = 10;
+
+    echo <<<'POU'
+    <h1>TABLAS DE MULTIPLICAR CON NOWDOC</h1> <br>
+    POU;
+
+    for($i = 1; $i <= $nTablas; $i++){
+        echo <<<'YER'
+        <table style='width: 10%'>
+        <h3>Tabla del
+        YER;
+        echo " $i</h3>";
+        for($j = 1; $j <= $limMult; $j++) {
+            echo <<<'H1'
+            <tr>
+            <td>
+            H1;
+            echo "$i x $j </td>";
+            echo "<td>($i * $j)";
+            echo <<<'H3'
+            </td>
+            </tr>
+            H3;
+        }
+    }
+?>
+
+<?php
+    $nTablas = 10;
+    $limMult = 10;
+
+    echo <<<UOU
+    <h1>TABLAS DE MULTIPLICAR CON HEREDOC</h1> <br>
+    UOU;
+
+    for($i = 1; $i <= $nTablas; $i++){
+        echo <<<EYE
+        <table style='width: 10%'>
+        <h3>Tabla del $i</h3>
+        EYE;
+        for($j = 1; $j <= $limMult; $j++) {
+            echo <<<PO
+            <tr>
+            <td>$i x $j</td>
+            <td>$i * $j</td>
+            </tr>
+            PO;
+        }
+    }
+?>
