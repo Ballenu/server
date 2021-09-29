@@ -6,56 +6,74 @@
     </head>
     <body>
 <?php
+
     $mes_introd = $_POST['mes'];
+    $mes_valido = false;
 
     switch($mes_introd) {
         case "enero":
             $nDias = 31;
+            $mes_valido = true;
             break;
         case "febrero":
             $nDias = 28;
+            $mes_valido = true;
             break;
         case "marzo":
             $nDias = 31;
+            $mes_valido = true;
             break;
         case "abril":
             $nDias = 30;
+            $mes_valido = true;
             break;
         case "mayo":
             $nDias = 31;
+            $mes_valido = true;
             break;
         case "junio":
             $nDias = 30;
+            $mes_valido = true;
             break;
         case "julio":
             $nDias = 31;
+            $mes_valido = true;
             break;
         case "agosto":
             $nDias = 31;
+            $mes_valido = true;
             break;
         case "septiembre":
-            $nDias = 31;
+            $nDias = 30;
+            $mes_valido = true;
             break;
         case "octubre":
+            $mes_valido = true;
             $nDias = 31;
             break;
         case "noviembre":
+            $mes_valido = true;
             $nDias = 30;
             break;
         case "diciembre":
+            $mes_valido = true;
             $nDias = 31;
             break;
         default:
             echo "El mes introducido no es válido.";
     }
-
-    echo "<table>";
-    for($i = 1; $i <= $nDias; $i++){
-        
+    
+    if($mes_valido){
+        echo "<h2>$mes_introd</h2>";
+        echo "<table>";
+        echo "<tr>";
+        for($i = 1; $i <= $nDias; $i++){
+            if($i == 0 || $i % 7 == 0) echo "<td>$i</td></tr><tr>";
+            echo "<td>$i</td>";
+        }
+        echo "</table>";
     }
-    echo "</table>"
-
-    echo "<a href=/ev1/t1c2ej1.html>Volver</a>"
+    echo "<a href=/ev1/t1c2ej1.html class='back'>Volver</a>";
 ?>
     </body>
 </html>
