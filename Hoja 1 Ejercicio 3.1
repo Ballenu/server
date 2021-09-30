@@ -1,3 +1,9 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
 <?PHP
 // NOWDOC
     $temp = array();
@@ -8,12 +14,11 @@
     $temp['Caja_5']=array(0, 3, 2, 3, 5, 2, 3, 2, 0, 1, 2, 3, 0, 1);
 
     echo <<<'HOLA'
-    <h1> Cajas con tªs > 4 con NOWDOC son...</h1>
-    <br>
+    <h3> Las cajas con temperaturas mayores a cuatro con NOWDOC son: </h3>
     HOLA;
     for($i = 1; $i <= 5; $i++){
         if(in_array("5", $temp["Caja_$i"])){
-            echo "Caja $i. <br>";
+            echo "Caja $i. ";
         }
     }
 ?>
@@ -27,12 +32,16 @@
     $temp['Caja_5']=array(0, 3, 2, 3, 5, 2, 3, 2, 0, 1, 2, 3, 0, 1);
 
     echo <<<OPE
-    <h1> Cajas con tªs > 4 con HEREDOC son...</h1>
-    <br>
+    <h3> Las cajas con temperaturas mayores a cuatro con NOWDOC son: </h3>
     OPE;
     for($i = 1; $i <= 5; $i++){
         if(in_array("5", $temp["Caja_$i"])){
-            echo "Caja $i. <br>";
+            echo "Caja $i. ";
         }
     }
 ?>
+    <br>
+    <br>
+    <a href="Ejercicio3.html">Volver</a>
+    </body>
+</html>
