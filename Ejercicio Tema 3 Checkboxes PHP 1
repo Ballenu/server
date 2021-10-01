@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action = "/ev1/ejerciciocheckbox.php" method="POST" enctype="multipart/form-data">
+            <label style="font-size: 130%;">Introduzca su nombre:</label>
+            <br>
+            <input type="text" name="nombre_cliente">
+            <br>
+            <label style="font-size: 130%;">Introduzca su edad:</label>
+            <br>
+            <input type="number" name="edad_cliente">
+            <br>
+            <label style="font-size: 130%;">Introduzca su fecha de nacimiento:</label>
+            <br>
+            <input type="calendar" name="fecha_nac_cliente">
+            <br>
+            <label style="font-size: 130%;">Selecciona los idiomas que hablas y el nivel de cada uno de ellos:</label>
+            <br>
+            <?php
+                $nIdiomas = 5;
+                $idiomas_array = [];
+                for($j = 0; $j < $nIdiomas; $j++){
+                    switch($j){
+                        case 0:
+                            array_push($idiomas_array, "Inglés-Nivel Bajo");
+                            array_push($idiomas_array, "Inglés-Nivel Medio");
+                            array_push($idiomas_array, "Inglés-Nivel Alto");
+                            break;
+                        case 1:
+                            array_push($idiomas_array, "Francés-Nivel Bajo");
+                            array_push($idiomas_array, "Francés-Nivel Medio");
+                            array_push($idiomas_array, "Francés-Nivel Alto");
+                            break;
+                        case 2:
+                            array_push($idiomas_array, "Español-Nivel Bajo");
+                            array_push($idiomas_array, "Español-Nivel Medio");
+                            array_push($idiomas_array, "Español-Nivel Alto");
+                            break;
+                        case 3:
+                            array_push($idiomas_array, "Italiano-Nivel Bajo");
+                            array_push($idiomas_array, "Italiano-Nivel Medio");
+                            array_push($idiomas_array, "Italiano-Nivel Alto");
+                            break;
+                        case 4:
+                            array_push($idiomas_array, "Portugués-Nivel Bajo");
+                            array_push($idiomas_array, "Portugués-Nivel Medio");
+                            array_push($idiomas_array, "Portugués-Nivel Alto");
+                            break;
+                    }
+                }
+
+                for($i = 0; $i < sizeof($idiomas_array); $i++){
+                    if($i % 3 == 0) echo "<br><br>";  
+                    echo <<<AEO
+                    <input type="checkbox" name="idiomas[]" value="$idiomas_array[$i]">$idiomas_array[$i]
+                    AEO;                 
+                }
+            ?>
+            <br>
+            <br>
+            <br>
+            <input type="submit" name="submitbtn" value="Enviar">
+        </form>
+    </body>
+</html>
