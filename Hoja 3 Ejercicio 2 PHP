@@ -14,11 +14,11 @@
             $tiempos_enviados[] = $tiempos;
         }
 
-        for($i = 0; $i <= sizeof($tiempos_enviados); $i++){
-            if($tiempos_enviados[$i] == $tiempos_correctos[$i] && !empty($tiempos_enviados[$i])) $aciertos++;
-            else $fallos++;
+        for($i = 0; $i < sizeof($tiempos_enviados); $i++){
+            if($tiempos_enviados[$i] == $tiempos_correctos[$i] && !empty($tiempos_enviados[$i]) && isset($tiempos_enviados)) $aciertos++;
             if(empty($tiempos_enviados[$i])) $sin_responder++;
         }
+        $fallos = sizeof($tiempos_correctos) - $aciertos;
 
         echo <<<YTR
             <p>Número de aciertos: $aciertos</p> 
