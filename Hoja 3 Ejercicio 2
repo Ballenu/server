@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <?php
+        $tiempos_correctos = array('be', 'was/were', 'been', 'begin', 'began', 'begun', 'break', 'broke', 'broken', 'bring', 'brought', 'brought', 'build', 'built', 'built', 'burn', 'burnt', 'burnt', 'buy', 'bought', 'bought', 'can', 'could', 'been able to', 'catch', 'caught', 'caught', 'do', 'did', 'done');
+        $aciertos = 0;
+        $fallos = 0;
+        $sin_responder = 0;
+        $tiempos_enviados = array();
+
+        foreach($_POST['t'] as $tiempos){
+            $tiempos_enviados[] = $tiempos;
+        }
+
+        for($i = 0; $i <= sizeof($tiempos_enviados); $i++){
+            if($tiempos_enviados[$i] == $tiempos_correctos[$i] && !empty($tiempos_enviados[$i])) $aciertos++;
+            else $fallos++;
+            if(empty($tiempos_enviados[$i])) $sin_responder++;
+        }
+
+        echo <<<YTR
+            <p>Número de aciertos: $aciertos</p> 
+            <p>Número de fallos: $fallos</p> 
+            <p>Número de preguntas no respondidas: $sin_responder</p> 
+        YTR;
+        if($aciertos >= $fallos + $sin_responder) echo "<p>¡Enhorabuena! Has aprobado.</p>";
+        else echo "¡Lastima! Has suspendido.";
+        ?>
+    </body>
+</html>
