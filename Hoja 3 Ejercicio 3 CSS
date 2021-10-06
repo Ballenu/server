@@ -1,0 +1,34 @@
+body {
+    text-align: center;
+    background-color: lightgray;
+}
+
+.formulario {
+    position: absolute; 
+    width: 25%;
+    height: auto;
+    background-color: rgb(183, 250, 183);
+    border-radius: 50px;
+    transform: translateX(150%);
+}
+
+label {
+    font-weight: bold;
+}
+
+h1 {
+    letter-spacing: 10px;
+}
+
+.submit {
+    border-radius: 10px;
+    background-color: rgb(157, 170, 184);
+}
+
+.submit:hover{
+    background-color: rgb(197, 202, 207);
+}
+
+input:hover{
+    transform: translateY(-3%);
+}
