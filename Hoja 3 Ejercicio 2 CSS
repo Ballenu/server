@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+margin: 10px 10%;
+}
+
+form label {
+    display: inline-block;
+    margin: 5px 35px;
+    font-size: 105%;
+}
+
+form input[type="text"]{
+	width:150px;
+	padding:3px 10px;
+	border:1px solid #a7a5a5;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 8px;
+	display:inline-block;
+}
+
+form input[type="submit"]{
+    margin-left: 15%;
+    background-color: grey;
+}
+
+form input[type="submit"]:hover {
+    background-color: lightgrey;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: rgb(73, 70, 70);
+}
