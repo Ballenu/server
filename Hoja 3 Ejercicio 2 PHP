@@ -1,26 +1,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="/ev1/Hoja3/Ejercicio2-H3.css">
+        <link rel="stylesheet" href="EjercicioTema2TiemposVerbales.css">
     </head>
     <body>
         <?php
         $tiempos_correctos = array('be', 'was/were', 'been', 'begin', 'began', 'begun', 'break', 'broke', 'broken', 'bring', 'brought', 'brought', 'build', 'built', 'built', 'burn', 'burnt', 'burnt', 'buy', 'bought', 'bought', 'can', 'could', 'been able to', 'catch', 'caught', 'caught', 'do', 'did', 'done');
         $aciertos = 0;
-        $fallos = 0;
         $sin_responder = 0;
         $tiempos_enviados = array();
 
+        //Introduzco los datos enviados por $_POST al array $tiempos_enviados
         foreach($_POST['t'] as $tiempos){
             $tiempos_enviados[] = $tiempos;
         }
 
+        //Comprobación de aciertos, fallos y preguntas sin responder
         for($i = 0; $i < sizeof($tiempos_enviados); $i++){
-            if($tiempos_enviados[$i] == $tiempos_correctos[$i] && !empty($tiempos_enviados[$i]) && isset($tiempos_enviados)) $aciertos++;
+            if($tiempos_enviados[$i] == $tiempos_correctos[$i] && !empty($tiempos_enviados[$i]) && isset($tiempos_enviados[$i])) $aciertos++;
             if(empty($tiempos_enviados[$i])) $sin_responder++;
         }
+        
         $fallos = sizeof($tiempos_correctos) - $aciertos;
 
+        //Visualización de resultados
         echo <<<YTR
             <p>Número de aciertos: $aciertos</p> 
             <p>Número de fallos: $fallos</p> 
@@ -28,6 +31,8 @@
         YTR;
         if($aciertos >= $fallos + $sin_responder) echo "<p>¡Enhorabuena! Has aprobado.</p>";
         else echo "¡Lastima! Has suspendido.";
+
+        echo "<br><br> <a href='/ev1/EjercicioTema2TiemposVerbales.html'>Volver</a>";
         ?>
     </body>
 </html>
