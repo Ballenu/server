@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
+    </head>
+<?php
+$nombre_env = $_POST['nombre'];
+$direccion_env = $_POST['direccion'];
+$fecha_env = $_POST['f_nac'];
+$genero_env = $_POST['genero'];
+$bgcolor_env = $_POST['color_bg'];
+$ltcolor_env = $_POST['color_letra'];
+$idiomas_env = array();
+$aficiones_env = array();
+
+foreach($_POST['idiomas'] as $lang){
+    $idiomas_env[] = $lang;
+}
+
+foreach($_POST['aficiones'] as $hobbies){
+    $aficiones_env[] = $hobbies;
+}
+
+echo <<<SOL
+    <body style="background-color: $bgcolor;">
+    <p style="color: $ltcolor;">Nombre: $nombre_env</p>
+    <br><br>
+    <p style="color: $ltcolor;">Dirección: $direccion_env</p>
+    <br><br>
+    <p style="color: $ltcolor;">Fecha de nacimiento: $fecha_env</p>
+    <br><br>
+SOL;
+
+echo "Idiomas:<br>";
+for($i = 0; $i < $idiomas_env; $i++){
+    echo "<br><p style='color: $ltcolor;'>$idiomas_env[$i]</p>";
+}
+
+echo "<p style='color: $ltcolor;'>Género: $genero_env</p><br><br>";
+
+echo "Aficiones:<br>";
+for($j = 0; $j < $idiomas_env; $j++){
+    echo "<br><p style='color: $ltcolor;'>$aficiones_env[$j]</p>";
+}
+?>
+    </body>
+</html>
