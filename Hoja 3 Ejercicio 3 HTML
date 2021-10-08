@@ -33,10 +33,10 @@
             <br><br><br>
 
             <label>Aficiones</label><br><br>
-            <select name="aficiones" multiple>
+            <select name="aficiones[]" multiple>
                 <option value="Deportes">Deportes</option>
                 <option value="Videojuegos">Videojuegos</option>
-                <option value="PelisySeries">Pelis y series</option>
+                <option value="Pelis y Series">Pelis y series</option>
                 <option value="Tapear">Tapear</option>
             </select>
             <br><br><br>
