@@ -4,12 +4,13 @@
         <link rel="stylesheet" href="Hoja3Ejercicio3.css">
     </head>
 <?php
+
 $nombre_env = $_POST['nombre'];
 $direccion_env = $_POST['direccion'];
 $fecha_env = $_POST['f_nac'];
 $genero_env = $_POST['genero'];
-$bgcolor_env = $_POST['color_bg'];
-$ltcolor_env = $_POST['color_letra'];
+$color_letra = $_POST['color_letra'];
+$color_fondo = $_POST['color_bg'];
 $idiomas_env = array();
 $aficiones_env = array();
 
@@ -22,25 +23,22 @@ foreach($_POST['aficiones'] as $hobbies){
 }
 
 echo <<<SOL
-    <body style="background-color: $bgcolor;">
-    <p style="color: $ltcolor;">Nombre: $nombre_env</p>
-    <br><br>
-    <p style="color: $ltcolor;">Dirección: $direccion_env</p>
-    <br><br>
-    <p style="color: $ltcolor;">Fecha de nacimiento: $fecha_env</p>
-    <br><br>
+    <body style="background-color: $color_fondo;">
+    <p style="color: $color_letra">Nombre: $nombre_env</p>
+    <p style="color: $color_letra;">Dirección: $direccion_env</p>
+    <p style="color: $color_letra;">Fecha de nacimiento: $fecha_env</p>
 SOL;
 
-echo "Idiomas:<br>";
-for($i = 0; $i < $idiomas_env; $i++){
-    echo "<br><p style='color: $ltcolor;'>$idiomas_env[$i]</p>";
+echo "<p style='color: $color_letra;'>Idiomas:</p>";
+for($i = 0; $i < sizeof($idiomas_env); $i++){
+    echo "<p style='color: $color_letra;'>$idiomas_env[$i]</p>";
 }
 
-echo "<p style='color: $ltcolor;'>Género: $genero_env</p><br><br>";
+echo "<p style='color: $color_letra;'>Género: $genero_env</p>";
 
-echo "Aficiones:<br>";
-for($j = 0; $j < $idiomas_env; $j++){
-    echo "<br><p style='color: $ltcolor;'>$aficiones_env[$j]</p>";
+echo "<p style='color: $color_letra;'>Aficiones:</p>";
+for($j = 0; $j < sizeof($aficiones_env); $j++){
+    echo "<p style='color: $color_letra;'>$aficiones_env[$j]</p>";
 }
 ?>
     </body>
