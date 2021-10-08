@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
+    </head>
+    <body>
+        <div class="formulario">
+        <h1>Formulario</h1><br>
+        <form action="Hoja3Ejercicio3.php" method="POST" enctype="multipart/form-data">
+            <label>Nombre</label><br><br>
+            <input type="text" name="nombre"><br><br><br>
+
+            <label>Dirección</label><br><br>
+            <input type="text" name="direccion"><br><br><br>
+
+            <label>Fecha de nacimiento</label><br><br>
+            <input type="date" name="f_nac"><br><br><br>
+
+            <label>Idiomas</label><br><br>
+            <input type="checkbox" name="idiomas[]" value="Inglés Alto">Inglés Alto<input type="checkbox" name="idiomas[]" value="Inglés Medio">Inglés Medio<input type="checkbox" name="idiomas[]" value="Inglés Bajo">Inglés Bajo
+            <br><br>
+            <input type="checkbox" name="idiomas[]" value="Francés Alto">Francés Alto<input type="checkbox" name="idiomas[]" value="Francés Medio">Francés Medio<input type="checkbox" name="idiomas[]" value="Francés Bajo">Francés Bajo
+            <br><br>
+            <input type="checkbox" name="idiomas[]" value="Español Alto">Alemán Alto<input type="checkbox" name="idiomas[]" value="EspañolEspañol Medio">Alemán Medio<input type="checkbox" name="idiomas[]" value="Español Bajo">Alemán Bajo
+            <br><br>
+            <input type="checkbox" name="idiomas[]" value="Italiano Alto">Italiano Alto<input type="checkbox" name="idiomas[]" value="Italiano Medio">Italiano Medio<input type="checkbox" name="idiomas[]" value="Italiano Bajo">Italiano Bajo
+            <br><br>
+            <input type="checkbox" name="idiomas[]" value="Portugués Alto">Portugués Alto<input type="checkbox" name="idiomas[]" value="Portugués Medio">Portugués Medio<input type="checkbox" name="idiomas[]" value="Portugués Bajo">Portugués Bajo
+            <br><br><br>
+
+            <input type="submit" name="enviado" value="Enviar">
+        </form>
+    </div>
+    </body>
+</html>
