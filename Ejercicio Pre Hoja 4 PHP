@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+    <?php
+        $nombre_alumno = $_POST['stu_name'];
+        $nombre_tmp = $_FILES['imagen']['tmp_name'];
+        $nombre_img_env = $_FILES['imagen']['name'];
+        $destino = "ev1/";
+    
+        if(is_uploaded_file($nombre_tmp)){
+            $id_u = time();
+            $nombre_img = $id_u."-".$nombre_img_env;
+            if(is_dir($destino)) {
+                $nombre_img_def = $destino.$nombre_img;
+                move_uploaded_file($nombre_tmp, $nombre_img_def);
+                echo "<p>$nombre_alumno, tu archivo ha sido enviado correctamente.</p>";
+            } else {
+                echo "<p>¡ERROR!, el directorio no es válido.</p>";
+            }
+        } else {
+            echo "<p>$nombre_alumno, tu archivo no se ha podido enviar correctamente.</p>";
+        }
+        ?>
+    </body>
+</html>
