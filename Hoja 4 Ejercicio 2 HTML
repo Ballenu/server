@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+            <h3>Introducir foto</h3>
+            <form action="Hoja4Ej2.php" method="POST" enctype="multipart/form-data">
+            <label>Nombre de alumno: </label>
+            <input type="text" name="stu_name">
+            <br>
+            <br>
+            <label>Introduce tu foto...</label>
+            <input type="file" name="imagen">
+            <br>
+            <br>
+            <br>
+            <input type="submit" name="enviar" value="Enviar">
+            </form>
+    </body>
+</html>
