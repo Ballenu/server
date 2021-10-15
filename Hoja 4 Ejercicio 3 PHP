@@ -39,7 +39,7 @@
             <h4>$fecha_env || $direccion_env || $genero_env</h4> <br>
             <img src=$nombre_img_def width= 30%/>
             <h4>Aficiones</h4>
-            <p>$aficiones_env</p><br>
+            <pre>$string2</pre><br>
             <h4>Idiomas</h4>
         ert;
             for($i = 0; $i < sizeof($idiomas_env); $i++){
@@ -50,7 +50,7 @@
         echo <<<ter
             <br><br>
             <h4>Experiencia laboral</h4>
-            <p>$exp_env</p><br>
+            <pre>$string</pre><br>
         ter;
     ?>
     </div>
