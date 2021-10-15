@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
+    </head>
+    <body>
+    <div class="formulario">
+        <h1>Introduzca los datos</h1>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label>Nombre y apellidos</label><br>
+            <input type="text" name="nombre"><br><br>
+
+            <label>Foto</label><br>
+            <input type="file" name="foto"><br><br>
+
+            <input type="submit" name="submit" value="Guardar datos">
+        </form>
+
+        <?php
+            $nombres = array();
+            array_push($_POST['nombre']);
+            
+        ?>
+    </div>
+    </body>
+</html>    
