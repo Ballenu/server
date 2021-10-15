@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <?php
+        $nombre_env = $_POST['nombre'];
+        $direccion_env = $_POST['direccion'];
+        $fecha_env = $_POST['f_nac'];
+        $genero_env = $_POST['genero'];
+        $exp_env = $_POST['exp'];
+        $aficiones_env = $_POST['aficiones'];
+        $img_tmp = $_FILES['imagen']['tmp_name'];
+        $img_env = $_FILES['imagen']['name'];
+        $destino = "../";
+        $idiomas_env = array();
+
+        $string=str_replace(array("/t", "/r", "/n", "/t/r", "/t/n", "/r/t", "/r/n", "/n/t", "/n/r"), "<br>", $exp_env);
+        $string2=str_replace(array("/t", "/r", "/n", "/t/r", "/t/n", "/r/t", "/r/n", "/n/t", "/n/r"), "<br>", $aficiones_env);
+
+        foreach($_POST['idiomas'] as $lang){
+            $idiomas_env[] = $lang;
+        }
+
+        if(is_uploaded_file($img_tmp)){
+            $id_u = time();
+            $nombre_img = $id_u."-".$img_env;
+            if(is_dir($destino)) {
+                $nombre_img_def = $destino.$nombre_img;
+                move_uploaded_file($img_tmp, $nombre_img_def);
+            }
+        }
+
+        echo <<<ert
+            <h1>Curriculum de $nombre_env</h1>
+            <h4>$fecha_env || $direccion_env || $genero_env</h4> <br>
+            <img src=$nombre_img_def width= 30%/>
+            <h4>Aficiones</h4>
+            <p>$aficiones_env</p><br>
+            <h4>Idiomas</h4>
+        ert;
+            for($i = 0; $i < sizeof($idiomas_env); $i++){
+                echo "$idiomas_env[$i]";
+                if($i != (sizeof($idiomas_env) - 1)) echo ", ";
+                else echo ".";
+            }
+        echo <<<ter
+            <br><br>
+            <h4>Experiencia laboral</h4>
+            <p>$exp_env</p><br>
+        ter;
+    ?>
+    </div>
+    </body>
+</html>
