@@ -32,3 +32,20 @@ h1 {
 input:hover{
     transform: translateY(-3%);
 }
+
+a {
+    border-color: rgb(255, 38, 0);
+    background-color: palegreen;
+    border-radius: 3px;
+    color: rgb(250, 73, 9);
+    text-decoration: none;
+}
+
+a:hover {
+    transform: translateY(-3%);
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
