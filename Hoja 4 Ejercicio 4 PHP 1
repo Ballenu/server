@@ -2,26 +2,50 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
+        <link rel="stylesheet" href="/1ev/Hoja3/Ejercicio3/Ejercicio3-H3.css">
     </head>
     <body>
     <div class="formulario">
-        <h1>Introduzca los datos</h1>
+        <h1>Introducir datos</h1>
         <form action="#" method="POST" enctype="multipart/form-data">
             <label>Nombre y apellidos</label><br>
-            <input type="text" name="nombre"><br><br>
+            <input type="text" name="nombre" style="text-transform: lowercase;"><br><br>
 
             <label>Foto</label><br>
-            <input type="file" name="foto"><br><br>
+            <input type="file" name="imagen"><br><br><br>
 
             <input type="submit" name="submit" value="Guardar datos">
         </form>
 
         <?php
-            $nombres = array();
-            array_push($_POST['nombre']);
-            
+            if(isset($_POST['nombre'])) {
+                $nombres = array();
+                array_push($nombres, $_POST['nombre']);
+            }
+
+            if(isset($_FILES['imagen'])){
+                $img_tmp = $_FILES['imagen']['tmp_name'];
+                $img_env = $_FILES['imagen']['name'];
+                $destino = "img4/";
+                if(is_uploaded_file($img_tmp)){
+                    $nombre_img = $_POST['nombre'];
+                    if(is_dir($destino)) {
+                        $nombre_img_def = $destino.$nombre_img;
+                        move_uploaded_file($img_tmp, $nombre_img_def);
+                    } else echo "Escritorio no existente o mal seleccionado.";
+                }
+            }
+
+            echo <<<next
+                <br>
+                <br>
+                <a href=Ejercicio4.2-H4.php>Gestionar datos</a>
+                <br>
+                <br>
+                <br>
+                <a href=/1ev/Hoja4/IndexHoja4.html>Volver</a>
+            next;
         ?>
     </div>
     </body>
-</html>    
+</html>
