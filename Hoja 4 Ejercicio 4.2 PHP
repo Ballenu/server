@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/1ev/Hoja3/Ejercicio3/Ejercicio3-H3.css">
+    </head>
+    <body>
+    <div class="formulario">
+        <h1>Gestionar datos</h1>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label>Introduzca el nombre</label><br>
+            <input type="text" name="nombreB" style="text-transform: lowercase;"><br><br>
+            <input type="submit" value="Buscar">
+        </form>
+
+        <?php
+            if(isset($_POST['nombreB'])){
+                $nombre_buscado = $_POST['nombreB'];
+                if(file_exists("img4/$nombre_buscado")){
+                    echo <<<rhf
+                        <br><br>
+                        <h4 style="text-transform: uppercase;">$nombre_buscado</h4> <br>
+                        <img src=img4/$nombre_buscado style="width:40%;">
+                    rhf;
+                }
+            }
+
+            echo <<<vvv
+                <br>
+                <br>
+                <br>
+                <a href=/1ev/Hoja4/Ejercicio4/Ejercicio4.1-H4.php>Introducir más datos</a>
+                <br>
+                <br>
+                <a href=/1ev/Hoja4/IndexHoja4.html>Volver al menú</a>
+            vvv;
+        ?>
+    </div>
+    </body>
+</html>
