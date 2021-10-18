@@ -18,11 +18,6 @@
         </form>
 
         <?php
-            if(isset($_POST['nombre'])) {
-                $nombres = array();
-                array_push($nombres, $_POST['nombre']);
-            }
-
             if(isset($_FILES['imagen'])){
                 $img_tmp = $_FILES['imagen']['tmp_name'];
                 $img_env = $_FILES['imagen']['name'];
