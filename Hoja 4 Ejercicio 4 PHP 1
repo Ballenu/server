@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="/1ev/Hoja3/Ejercicio3/Ejercicio3-H3.css">
+        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
     </head>
     <body>
     <div class="formulario">
@@ -18,11 +18,13 @@
         </form>
 
         <?php
+        include("SpecificFunctions.php");
+
             if(isset($_FILES['imagen'])){
                 $img_tmp = $_FILES['imagen']['tmp_name'];
                 $destino = "img4/";
                 if(is_uploaded_file($img_tmp)){
-                    $nombre_img = time()."-".$_POST['nombre'];
+                    $nombre_img = time()."-".noSideSpaces($_POST['nombre']);
                     if(is_dir($destino)) {
                         $nombre_img_def = $destino.$nombre_img;
                         move_uploaded_file($img_tmp, $nombre_img_def);
@@ -42,4 +44,4 @@
         ?>
     </div>
     </body>
-</html>
+</html> 
