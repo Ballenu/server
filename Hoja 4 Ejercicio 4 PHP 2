@@ -15,14 +15,22 @@
 
         <?php
             if(isset($_POST['nombreB'])){
+                $nombre_buscado = array();
                 $nombre_buscado = $_POST['nombreB'];
-                if(file_exists("img4/$nombre_buscado")){
-                    echo <<<rhf
-                        <br><br>
-                        <h4 style="text-transform: uppercase;">$nombre_buscado</h4> <br>
-                        <img src=img4/$nombre_buscado style="width:40%;">
-                    rhf;
+                $contenido_dir = scandir("img4/");
+                foreach($contenido_dir as $dir){
+                    if(substr($dir, 11) == $nombre_buscado){
+                        echo <<<rhf
+                            <br><br>
+                            <h4 style="text-transform: uppercase;">$nombre_buscado</h4> <br>
+                            <img src=img4/$dir style="width:40%;">
+                        rhf;
+                        $encontrado = true;
+                    } else {
+                        $encontrado = false;
+                    }
                 }
+                if(!$encontrado) echo "No encontrado.";
             }
 
             echo <<<vvv
