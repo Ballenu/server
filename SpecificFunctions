@@ -1,0 +1,12 @@
+<?php
+    function noSpaces($word){
+        $word = trim($word);
+        $word = str_replace(" ", "", $word);
+        return $word;
+    }
+
+    function noSideSpaces($word){
+        $word = trim($word);
+        return $word;
+    }
+?>
