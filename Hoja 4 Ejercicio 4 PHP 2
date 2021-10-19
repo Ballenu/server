@@ -18,6 +18,7 @@
                 $nombre_buscado = array();
                 $nombre_buscado = $_POST['nombreB'];
                 $contenido_dir = scandir("img4/");
+                $encontrado = true;
                 foreach($contenido_dir as $dir){
                     if(substr($dir, 11) == $nombre_buscado){
                         echo <<<rhf
@@ -26,13 +27,12 @@
                             <img src=img4/$dir style="width:40%;">
                         rhf;
                         $encontrado = true;
-                    } else {
+                    } else if(!$encontrado){
                         $encontrado = false;
                     }
                 }
                 if(!$encontrado) echo "No encontrado.";
             }
-
             echo <<<vvv
                 <br>
                 <br>
