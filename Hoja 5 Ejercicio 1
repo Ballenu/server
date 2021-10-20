@@ -1,0 +1,13 @@
+<?php
+    function buscar($aguja, $pajar){
+        $palabra = array();
+        for($i = 0; $i < strlen($pajar); $i++){
+            if(substr($pajar, $i, 1) == substr($aguja, 0, 1)){
+                if(substr($pajar, $i, strlen($aguja)) == $aguja) array_push($palabra, $i);
+            }
+        }
+
+        if(!empty($palabra)) return $palabra;
+        else return false;
+    }
+?>
