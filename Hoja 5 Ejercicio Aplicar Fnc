@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Hoja3Ejercicio3.css">
+    </head>
+    <body>
+    <div class="formulario">
+        <h1>Aplicar funciones</h1>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label>Escribe un texto</label><br>
+            <textarea rows="5" cols="40" name="pos_text" require></textarea><br><br>
+            <label>Escribe la palabra que quieras buscar</label><br>
+            <input type="text" name="pos_search" require><br><br><br>
+
+            <hr>
+
+            <label>Escribe un texto</label><br>
+            <textarea rows="5" cols="40" name="ex_text" require></textarea><br><br>
+            <label>Escribe la palabra que quieras saber si existe</label><br>
+            <input type="text" name="ex_search" require><br><br><br>
+
+            <hr>
+
+            <label>Escribe un texto</label><br>
+            <textarea rows="5" cols="40" name="rplc_text" require></textarea><br><br>
+            <label>Escribe la palabra que quieras reemplazar</label><br>
+            <input type="text" name="rplc_search" require><br><br><br>
+
+            <input type="submit" value="Ejecutar">
+        </form>
+
+        <?php
+            include("Ejercicio2-H5.php");
+
+            if(isset($_POST['pos_text'], $_POST['ex_text'], $_POST['rplc_text'], $_POST['pos_search'], $_POST['ex_search'], $_POST['rplc_search'])){
+                $pt = $_POST['pos_text'];
+                $et = $_POST['ex_text'];
+                $rt = $_POST['pos_text'];
+                $ps = $_POST['pos_search'];
+                $es = $_POST['ex_search'];
+                $rs = $_POST['rplc_search'];
+
+                //Función posiciones
+                echo "<p>Las posiciones en la que se encuentra esa palabra son...</p>";
+                foreach (posiciones($ps, $pt) as $pal){
+                    echo $pal;
+                }
+            }
+        ?>
+    </div>
+    </body>
+</html>
