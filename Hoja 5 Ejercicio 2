@@ -1,0 +1,27 @@
+<?php
+    function posiciones($aguja, $pajar){
+        $palabra = array();
+        for($i = 0; $i < strlen($pajar); $i++){
+            if(substr($pajar, $i, 1) == substr($aguja, 0, 1)){
+                if(substr($pajar, $i, strlen($aguja)) == $aguja) array_push($palabra, $i);
+            }
+        }
+        
+        if(!empty($palabra)) return $palabra;
+        else return false;
+    }
+
+    function existe($aguja, $pajar){
+        $existe = false;
+        for($i = 0; $i < strlen($pajar); $i++){
+            if(substr($pajar, $i, 1) == substr($aguja, 0, 1)){
+                if(substr($pajar, $i, strlen($aguja)) == $aguja) $existe = true;
+            }
+        }
+        return $existe;
+    }
+            
+    function reemplazar($aguja, $aguja2, $pajar){
+        return str_replace($aguja, $aguja2, $pajar);
+    }
+?>
