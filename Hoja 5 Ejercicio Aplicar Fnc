@@ -25,10 +25,14 @@
             <label>Escribe un texto</label><br>
             <textarea rows="5" cols="40" name="rplc_text" require></textarea><br><br>
             <label>Escribe la palabra que quieras reemplazar</label><br>
-            <input type="text" name="rplc_search" require><br><br><br>
+            <input type="text" name="rplc_search" require><br><br>
+            <label>Escribe la palabra por la que la vas a reemplazar</label><br>
+            <input type="text" name="rplc_rep" require><br><br>
 
             <input type="submit" value="Ejecutar">
         </form>
+
+        <hr>
 
         <?php
             include("Ejercicio2-H5.php");
@@ -40,12 +44,22 @@
                 $ps = $_POST['pos_search'];
                 $es = $_POST['ex_search'];
                 $rs = $_POST['rplc_search'];
+                $rp = $_POST['rplc_rep'];
 
                 //Función posiciones
-                echo "<p>Las posiciones en la que se encuentra esa palabra son...</p>";
+                echo "<br><h4>Las posiciones en la que se encuentra esa palabra en el texto 1 son...</h4>";
                 foreach (posiciones($ps, $pt) as $pal){
-                    echo $pal;
+                    echo "$pal    ";
                 }
+
+                //Función existe
+                echo "<br><br><h4>En el texto 2 existe la palabra buscada...</h4>";   
+                if(existe($es, $et)) echo "Existe.";
+                else echo "No existe.";
+
+                //Función reemplazar
+                echo "<br><br><h4>El texto 3 reemplazado sería...</h4>";
+                echo reemplazar($rs, $rp, $rt);
             }
         ?>
     </div>
