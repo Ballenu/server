@@ -6,8 +6,6 @@
     </head>
     <body>
     <?php
-        $user_name = NULL;
-        $user_pass = NULL;
         echo <<<frm
             <div class=formulario>
                 <h1>Ingresar</h1>
