@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="formstyle.css">
+    </head>
+    <body>
+    <?php
+        echo <<<frm
+            <div class=formulario>
+                <h1>Ingresar</h1>
+                <form action=# method=GET enctype=multipart/for-data>
+                    <input type=text name=user_name placeholder="Nombre de usuario" required>
+                    <br><br>
+                    <input type=password name=user_pass placeholder=Contraseña required>
+                    <br><br><br>
+                    <input type=submit value=Entrar>
+                </form>
+        frm;
+
+        $valid_users = array("David" => "dvd", "Alejandro" => "ljndr", "Fernándo" => "frnnd", "Alfredo" => "lfrd", "María" => "mr", "Candela" => "cndl");
+
+        if(isset($_GET['user_name'], $_GET['user_pass'])){
+            $user=$_GET['user_name'];
+            $pass=$_GET['user_pass'];
+
+            $valid = false;
+
+            for($i = 0; $i < sizeof($valid_users); $i++){
+                if($valid_users["$user"] == $pass){
+                    $valid = true;
+                }
+            }
+
+            if($valid){
+                header("Location: Ejercicio1.1-H6.php?user=$user");
+            } else {
+                header("Location: Ejercicio2.1-H6.php?user=$user");
+            }
+        }
+
+        echo <<<qne
+            <br>
+            <br>
+            <br>
+            <a href=/1ev/Hoja6/IndexHoja6.html>Volver al menú</a>
+        qne;
+    ?>
+    </div>
+    </body>
+</html> 
