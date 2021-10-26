@@ -36,7 +36,7 @@
                 header("Location: Ejercicio1.1-H6.php?user=$user&pass=$pass");
             } else {
                 echo "<br><br>Datos incorrectos, espera 10 segundos...";
-                header("Refresh: 10; url=/ev1/Ejercicio1-H6.php");
+                header("Refresh: 10; url=/1ev/Hoja6/Ejercicio1/Ejercicio1-H6.php");
             }
         }
 
