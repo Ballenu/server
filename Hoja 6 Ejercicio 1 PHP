@@ -6,49 +6,48 @@
     </head>
     <body>
     <?php
+        $user_name = NULL;
+        $user_pass = NULL;
         echo <<<frm
             <div class=formulario>
                 <h1>Ingresar</h1>
-                <form action=# method=POST enctype=multipart/for-data>
+                <form action=# method=GET enctype=multipart/for-data>
                     <input type=text name=user_name placeholder="Nombre de usuario" required>
                     <br><br>
                     <input type=password name=user_pass placeholder=Contraseña required>
                     <br><br><br>
                     <input type=submit value=Entrar>
                 </form>
-            </div>
         frm;
 
-        $valid_users = array("David", "Alejandro", "Fernándo", "Alfredo", "María", "Candela");
-        $valid_pass = array("dvd", "ljndr", "frnnd", "lfrd", "mr", "cndl");
+        $valid_users = array("David" => "dvd", "Alejandro" => "ljndr", "Fernándo" => "frnnd", "Alfredo" => "lfrd", "María" => "mr", "Candela" => "cndl");
 
-        if(isset($_POST['user_name'], $_POST['user_pass'])){
-            $user=$_POST['user_name'];
-            $pass=$_POST['user_pass'];
+        if(isset($_GET['user_name'], $_GET['user_pass'])){
+            $user=$_GET['user_name'];
+            $pass=$_GET['user_pass'];
 
             $valid = false;
 
-            foreach($valid_users as $u){
-                if($u == $user) {
+            for($i = 0; $i < sizeof($valid_users); $i++){
+                if($valid_users["$user"] == $pass){
                     $valid = true;
                 }
             }
-            
+
             if($valid){
-                $valid = false;
-                foreach($valid_pass as $p){
-                    if($p == $pass){
-                        $valid = true;
-                    }
-                }
-
-                if($valid){
-                    header('Ejercicio1.1-H6.php');
-                }
+                header("Location: Ejercicio1.1-H6.php?user=$user&pass=$pass");
+            } else {
+                echo "<br><br>Datos incorrectos, espera 10 segundos...";
+                header("Refresh: 10; url=/ev1/Ejercicio1-H6.php");
             }
-
-            
         }
+
+        echo <<<qne
+            <br>
+            <br>
+            <br>
+            <a href=/1ev/Hoja6/IndexHoja6.html>Volver al menú</a>
+        qne;
     ?>
     </div>
     </body>
