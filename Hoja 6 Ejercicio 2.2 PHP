@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <?php
+        $user = $_GET["user"];
+        echo <<<qrtm
+            <h4>Lastimosamente no pudiste iniciar sesión, $user!</h4>
+            <p>Se te redireccionará a la pantalla anterior en breves instantes...</p>
+            <br>
+            <br>
+            <a href=/1ev/Hoja6/Ejercicio2/Ejercicio2.php>Volver</a>
+            <br>
+            <br>
+            <a href=/1ev/Hoja6/IndexHoja6.html>Volver al menú</a>
+        qrtm;
+        header("Refresh: 10; url:/ev1/Ejercicio2-H6.php");
+    ?>
+    </div>
+    </body>
+</html>
