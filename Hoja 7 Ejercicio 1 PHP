@@ -1,10 +1,13 @@
 <?php
-    function datosAleatoriosMatriz($matriz)
-    for($i = 0; $i < 20; $i++){
-        for($j = 0; $j < 20; $j++){
-            $aleatorio = rand(0, 400);
-            if(!in_array($aleatorio, $matriz)) array_push($matriz[$i][$j], $aleatorio);
-            else $j--;
+    function datosAleatoriosMatriz($matriz){
+        for($i = 0; $i < 20; $i++){
+            for($j = 0; $j < 20; $j++){
+                $aleatorio = random_int(0, 400);
+                if(!in_array($aleatorio, $matriz)) $matriz[$i][$j] = $aleatorio;
+                else $j--;
+            }
         }
+        
+        return $matriz;
     }
 ?>
