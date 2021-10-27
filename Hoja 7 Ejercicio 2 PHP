@@ -6,5 +6,7 @@
             $baraja[$i] = $baraja[$aleatorio];
             $baraja[$aleatorio] = $aux;
         }
+
+        return $baraja;
     }         
 ?>
