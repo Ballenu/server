@@ -1,0 +1,33 @@
+<?php
+    function asignar_baraja($baraja){
+        for($i = 0; $i < 40; $i++){
+            switch($i){
+                case $i < 10:
+                    array_push($baraja, $i." de corazones");
+                    break;
+                case $i < 20:
+                    array_push($baraja, $i." de bastos");
+                    break;
+                case $i < 30:
+                    array_push($baraja, $i." de espadas");
+                    break;
+                case $i < 40:
+                    array_push($baraja, $i." de oros");
+                    break;
+            }
+        }
+    }
+
+    function barajar_array($baraja){
+        for($i = 0; $i < 40; $i++){
+            $aleatorio = rand(0,39);
+            $aux = $baraja[$i];
+            $baraja[$i] = $baraja[$aleatorio];
+            $baraja[$aleatorio] = $aux;
+        }
+    }
+    
+    function seleccionaCartas($n){
+        for($i = 0
+    }
+?>
