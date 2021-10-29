@@ -3,16 +3,68 @@
         for($i = 0; $i < 40; $i++){
             switch($i){
                 case $i < 10:
-                    array_push($baraja, $i." de corazones");
+                    switch($i){
+                        case 7:
+                            array_push($baraja, 11." de corazones");
+                            break;
+                        case 8:
+                            array_push($baraja, 12." de corazones");
+                            break;
+                        case 9:
+                            array_push($baraja, 13." de corazones");
+                            break;
+                        default:
+                            array_push($baraja, $i." de corazones");
+                            break;
+                    }
                     break;
                 case $i < 20:
-                    array_push($baraja, $i." de bastos");
+                    switch($i){
+                        case 17:
+                            array_push($baraja, 11." de bastos");
+                            break;
+                        case 18:
+                            array_push($baraja, 12." de bastos");
+                            break;
+                        case 19:
+                            array_push($baraja, 13." de bastos");
+                            break;
+                        default:
+                            array_push($baraja, $i." de bastos");
+                            break;
+                    }
                     break;
                 case $i < 30:
-                    array_push($baraja, $i." de espadas");
+                    switch($i){
+                        case 27:
+                            array_push($baraja, 11." de espadas");
+                            break;
+                        case 28:
+                            array_push($baraja, 12." de espadas");
+                            break;
+                        case 29:
+                            array_push($baraja, 13." de espadas");
+                            break;
+                        default:
+                            array_push($baraja, $i." de espadas");
+                            break;
+                    }
                     break;
                 case $i < 40:
-                    array_push($baraja, $i." de oros");
+                    switch($i){
+                        case 37:
+                            array_push($baraja, 11." de oros");
+                            break;
+                        case 38:
+                            array_push($baraja, 12." de oros");
+                            break;
+                        case 39:
+                            array_push($baraja, 13." de oros");
+                            break;
+                        default:
+                            array_push($baraja, $i." de oros");
+                            break;
+                    }
                     break;
             }
         }
@@ -28,6 +80,6 @@
     }
     
     function seleccionaCartas($n){
-        for($i = 0
+        for($i = 0; $i < $n; 
     }
 ?>
