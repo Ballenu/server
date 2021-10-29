@@ -30,7 +30,7 @@
                 }
             }
 
-            echo "La posición del número $nBuscado es la número $posición.";
+            echo "<br><br>La posición del número $nBuscado es la número $posición.";
             
         }
     ?>
