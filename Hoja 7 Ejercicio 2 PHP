@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <?php
+    include("Ejercicio2Functions-H7.php");
+
+    $baraja = array();
+    asignar_baraja($baraja);
+    barajar_array($baraja);
+    
+    ?>
+    </div>
+    </body>
+</html>
