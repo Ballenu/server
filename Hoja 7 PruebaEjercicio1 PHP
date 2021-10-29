@@ -8,7 +8,7 @@
     <div class="formulario">
     <h1>Ver datos matriz</h1><br>
     <form action="#" method="POST" enctype="multipart/form-data">
-        <label>¿De qué número quieres saber la posición?</label><br><br>
+        <label>¿De qué número quieres saber la posición (0-400)?</label><br><br>
         <input type="number" name="dato" value="0"><br><br><br>
         <input type="submit" name="Buscar">
     </form>
@@ -18,11 +18,19 @@
         $matriz_aleatoria = array();
         $matriz_aleatoria = datosAleatoriosMatriz($matriz_aleatoria);
 
-        if(isset($_POST['dato'])){
+        if(isset($_POST['dato']) && $_POST['dato'] >= 0 && $_POST['dato'] <= 400){
             $nBuscado = $_POST['dato'];
-            if($nBuscado === 0) $nArray = $nBuscado;
-            else $nArray = $nBuscado - 1;
+            $c = 1;
+            $posición = 0;
 
+            for($j = 0; $j < 20; $j++){
+                for($o = 0; $o < 20; $o++){
+                    if($matriz_aleatoria[$j][$o] == $nBuscado) $posición = $c;
+                    else $c++;
+                }
+            }
+
+            echo "La posición del número $nBuscado es la número $posición.";
             
         }
     ?>
