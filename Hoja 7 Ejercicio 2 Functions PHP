@@ -1,85 +1,137 @@
 <?php
-    function asignar_baraja($baraja){
+    function asignar_baraja(){
+        $baraja = array();
         for($i = 0; $i < 40; $i++){
             switch($i){
                 case $i < 10:
                     switch($i){
                         case 7:
-                            array_push($baraja, 11." de corazones");
+                            array_push($baraja, "10corazones");
                             break;
                         case 8:
-                            array_push($baraja, 12." de corazones");
+                            array_push($baraja, "11corazones");
                             break;
                         case 9:
-                            array_push($baraja, 13." de corazones");
+                            array_push($baraja, "12corazones");
                             break;
                         default:
-                            array_push($baraja, $i." de corazones");
+                            if($i === 1) array_push($baraja, ($i)."corazones", ($i + 1)."corazones");
+                            else array_push($baraja, ($i + 1)."corazones");
                             break;
                     }
                     break;
                 case $i < 20:
                     switch($i){
                         case 17:
-                            array_push($baraja, 11." de bastos");
+                            array_push($baraja, "10bastos");
                             break;
                         case 18:
-                            array_push($baraja, 12." de bastos");
+                            array_push($baraja, "11bastos");
                             break;
                         case 19:
-                            array_push($baraja, 13." de bastos");
+                            array_push($baraja, "12bastos");
                             break;
                         default:
-                            array_push($baraja, $i." de bastos");
+                            array_push($baraja, ($i - 9)."bastos");                            ;
                             break;
                     }
                     break;
                 case $i < 30:
                     switch($i){
                         case 27:
-                            array_push($baraja, 11." de espadas");
+                            array_push($baraja, "10espadas");
                             break;
                         case 28:
-                            array_push($baraja, 12." de espadas");
+                            array_push($baraja, "11espadas");
                             break;
                         case 29:
-                            array_push($baraja, 13." de espadas");
+                            array_push($baraja, "12espadas");
                             break;
                         default:
-                            array_push($baraja, $i." de espadas");
+                            array_push($baraja, ($i - 19)."espadas");
                             break;
                     }
                     break;
                 case $i < 40:
                     switch($i){
                         case 37:
-                            array_push($baraja, 11." de oros");
+                            array_push($baraja, "10oros");
                             break;
                         case 38:
-                            array_push($baraja, 12." de oros");
+                            array_push($baraja, "11oros");
                             break;
                         case 39:
-                            array_push($baraja, 13." de oros");
+                            array_push($baraja, "12oros");
                             break;
                         default:
-                            array_push($baraja, $i." de oros");
+                            array_push($baraja, ($i - 29)."oros");
                             break;
                     }
                     break;
             }
         }
+        
+        return $baraja;
     }
 
     function barajar_array($baraja){
         for($i = 0; $i < 40; $i++){
-            $aleatorio = rand(0,39);
+            $aleatorio = rand(0, 39);
             $aux = $baraja[$i];
             $baraja[$i] = $baraja[$aleatorio];
             $baraja[$aleatorio] = $aux;
         }
+
+       return $baraja;
     }
     
-    function seleccionaCartas($n){
-        for($i = 0; $i < $n; 
+    function seleccionaCartasXPalo($palo, $cantidad){
+        if($cantidad > 10) $cantidad = 10;
+        for($i = 0; $i < $cantidad; $i++){
+            switch($i){
+                case 7:
+                case 17:
+                case 27:
+                case 37:
+                    $iS = 10;
+                    break;
+                case 8:
+                case 18:
+                case 28:
+                case 38:
+                    $iS = 11;
+                    break;
+                case 9:
+                case 19:
+                case 29:
+                case 39:
+                    $iS = 12;
+                    break;
+                default:
+                    $iS = $i + 1;
+                    break;
+            }
+            
+            echo <<<ter
+                <img src=cartas/$iS$palo style=width:20%;>
+            ter;
+        }
+    }
+
+    function seleccionaCartas($baraja, $cantidad){
+        if($cantidad > 40) $cantidad = 40;
+        for($i = 0; $i < $cantidad; $i++){
+            echo <<<ter
+                <img src=cartas/$baraja[$i] style=width:20%;>
+            ter;
+        }
+    }
+
+    function verBaraja($baraja){
+        foreach($baraja as $carta){
+            echo <<<tw
+                <img src=cartas/$carta style=width:20%;>
+            tw;
+        }
     }
 ?>
