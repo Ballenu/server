@@ -2,17 +2,61 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="formstyle.css">
+        <link rel="stylesheet" href="/1ev/formstyle.css">
     </head>
     <body>
     <div class="formulario">
-    <?php
-    include("Ejercicio2Functions-H7.php");
+    <h1>BARAJA ESPAÑOLA</h1> <br>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        
+        <label style="font-size: 110%;">Ver baraja</label>
+        <input type="checkbox" name="ver"> <br><br><br>
 
-    $baraja = array();
-    asignar_baraja($baraja);
-    barajar_array($baraja);
+        <label style="font-size: 110%;">Barajar</label>
+        <input type="checkbox" name="barajar"> <br><br><br>
+
+        <label style="font-size: 130%;">Mostrar cartas</label> <br><br>
+
+        <label>Elegir palo</label> <br><br>
+        <input type="radio" name="palo" value="oros">Oros
+        <input type="radio" name="palo" value="espadas">Espadas
+        <input type="radio" name="palo" value="bastos">Bastos
+        <input type="radio" name="palo" value="corazones">Corazones <br><br><br>
+          
+        <label>Número de cartas</label>
+        <input type="number" name="num_cartas" style="width: 8%;"> <br><br><br>
+
+        <input type="submit" name="submit">
+    </form>
+    <?php
+    include("Ejercicio2-Functions-H7.php");
+
+    $baraja = asignar_baraja();
+
+    if(isset($_POST['barajar'])) {
+        $baraja = barajar_array($baraja);
+    }
+
+    if(isset($_POST['ver'])){
+        echo "<br><br><br>";
+        verBaraja($baraja);
+    }
     
+    if(isset($_POST['num_cartas'])){
+        $nCartas = $_POST['num_cartas'];
+
+        if(isset($_POST['palo'])){
+            $palo = $_POST['palo'];
+            seleccionaCartasXPalo($palo, $nCartas);
+        } else {
+            seleccionaCartas($baraja, $nCartas);
+        }
+    }
+
+    echo <<<ejwe
+            <br><br><br>
+            <a href=/1ev/Hoja7/IndexHoja7.html>Volver al menú</a>
+        ejwe;    
     ?>
     </div>
     </body>
