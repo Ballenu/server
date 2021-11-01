@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/1ev/formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Tablero de ajedrez</h1> <br>
+    <?php
+    include("Ejercicio3-Functions-H7.php");
+    
+    dibujarTablero();
+
+    echo <<<nbm
+    <br><br><br>
+    <a href=/1ev/Hoja7/IndexHoja7.html>Volver al menú</a>
+    nbm;    
+    ?>
+    </div>
+    </body>
+</html>
