@@ -1,0 +1,79 @@
+<?php
+    function dibujarTablero(){
+        $negro = "negro";
+        $blanco = "blanco";
+        $figuras = array('torre', 'caballo', 'alfil', 'reina', 'rey', 'alfil', 'caballo', 'torre');
+        echo "<table>";
+        for($filas = 1; $filas < 9; $filas++){
+            echo "<tr>";
+            for($columnas = 1; $columnas < 9; $columnas++){
+                $colMenos = $columnas - 1;
+                if($filas % 2 != 0 && $columnas % 2 != 0 ) {
+                    if($filas == 1){
+                        echo <<<on
+                        <td class=whitebg>
+                            <img src=figuras/$figuras[$colMenos]$blanco class=ajedrez></img>
+                        </td>
+                        on;
+                    } else if($filas == 7){
+                        echo <<<neg
+                        <td class=whitebg>
+                            <img src=figuras/peon$negro class=ajedrez></img>
+                        </td>
+                        neg;
+                    } else {
+                        echo "<td class='whitebg expand'></td>";
+                    }
+                } else if($filas % 2 == 0 && $columnas % 2 == 0){
+                    if($filas == 2){
+                        echo <<<bla
+                        <td class=whitebg>
+                            <img src=figuras/peon$blanco class=ajedrez></img>
+                        </td>
+                        bla;
+                    } else if($filas == 8) {
+                        echo <<<gf
+                        <td class=whitebg>
+                            <img src=figuras/$figuras[$colMenos]$negro class=ajedrez></img>
+                        </td>
+                        gf;
+                    } else {
+                        echo "<td class='whitebg expand'></td>";
+                    }
+                        
+                } else {
+                    if($filas == 1) {
+                        echo <<<onqw
+                        <td class=blackbg>
+                            <img src=figuras/$figuras[$colMenos]$blanco class=ajedrez></img>
+                        </td>
+                        onqw;
+                    } else if($filas == 2){
+                        echo <<<blan
+                        <td class=blackbg>
+                            <img src=figuras/peon$blanco class=ajedrez></img>
+                        </td>
+                        blan;
+                    } else if($filas == 7) {
+                        echo <<<ne
+                        <td class=blackbg>
+                            <img src=figuras/peon$negro class=ajedrez></img>
+                        </td>
+                        ne;
+                    } if($filas == 8) {
+                        echo <<<ton
+                        <td class=blackbg>
+                            <img src=figuras/$figuras[$colMenos]$negro class=ajedrez></img>
+                        </td>
+                        ton;
+                    } else {
+                        echo "<td class='blackbg expand'></td>";
+                    }
+                        
+                }
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+?>
