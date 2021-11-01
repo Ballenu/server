@@ -1,0 +1,85 @@
+body {
+    text-align: center;
+    background-color: lightgray;
+}
+
+.formulario {
+    position: absolute; 
+    width: 25%;
+    height: auto;
+    background-color: rgb(183, 250, 183);
+    border-radius: 50px;
+    transform: translateX(150%);
+}
+
+label {
+    font-weight: bold;
+}
+
+h1 {
+    letter-spacing: 10px;
+}
+
+.submit {
+    border-radius: 10px;
+    background-color: rgb(157, 170, 184);
+}
+
+.submit:hover{
+    background-color: rgb(197, 202, 207);
+}
+
+input:hover{
+    transform: translateY(-3%);
+}
+
+a {
+    border-radius: 3px;
+    color: rgb(247, 99, 45);
+    text-decoration: none;
+}
+
+a:hover {
+    transform: translateY(-3%);
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    position: relative;
+}
+
+table, 
+td, 
+tr {
+    border: 1px solid black;
+    width: 100%;
+    white-space: nowrap;
+}
+
+td, tr {
+    height: 3rem;
+}
+
+.blackbg {
+    background-color: black;
+    color: white;
+}
+
+.whitebg {
+    background-color: white;
+    color: black;
+}
+
+.ajedrez {
+    align-content: center;
+}
+
+.expand {
+    width: ;
+}
