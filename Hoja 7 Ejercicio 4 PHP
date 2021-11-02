@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/1ev/formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Horarios Zayas</h1> <br>
+    <?php
+    include("Ejercicio4-Functions-H7.php");
+
+    $ciclos = array('AYF' => 'Administración y finanzas', 'VE' => 'Agencias de Viajes y Gestión de Eventos', 'GIAT' => 'Guía, Información y Asistencias Turísticas', 'DC' => 'Dirección de Cocina', 'ASIR' => 'Administración de Sistemas Informáticos en Red', 'DAW' => 'Desarrollo de Aplicaciones Web', 'DAM' => 'Desarrollo de Aplicaciones Multiplataforma', 'EID' => 'Educación Infantil Dual');
+
+    foreach($ciclos as $c){
+        echo "<a href='?asig=$c' class='horarios__link'>$c</a><br><br><br>";
+    }
+    
+    /*foreach($ciclos as $ac){
+        verHorario($ac);
+    }*/
+
+    
+    echo <<<nre
+    <br><br><br>
+    <a href=/1ev/Hoja7/IndexHoja7.html>Volver al menú</a>
+    nre;    
+    ?>
+    </div>
+    </body>
+</html>
