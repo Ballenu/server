@@ -80,6 +80,11 @@ td, tr {
     align-content: center;
 }
 
-.expand {
-    width: ;
+.horarios__link {
+    color: blue;
+    transition: all 0.2;
+}
+
+.horarios__link:hover {
+    color: red;
 }
