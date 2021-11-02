@@ -1,0 +1,40 @@
+<?php
+    function verHorario($ciclo){
+        echo <<<tit
+            <br><h3>$ciclo</h3><br>
+            <table>
+        tit;
+        for($row = 1; $row <= 9; $row++){
+            echo "<tr>";
+            for($col = 1; $col <= 5; $col++){
+                if($row == 1){
+                    switch($col){
+                        case 1:
+                            echo "<td style:'font-weight: bold;'>L</td>";
+                            break;
+                        case 2:
+                            echo "<td style:'font-weight: bold;'>M</td>";
+                            break;
+                        case 3:
+                            echo "<td style:'font-weight: bold;'>X</td>";
+                            break;
+                        case 4:
+                            echo "<td style:'font-weight: bold;'>J</td>";
+                            break;
+                        case 5:
+                            echo "<td style:'font-weight: bold;'>V</td>";
+                            break;
+                    }
+                } else {
+                    if($row < 9) {
+                        if($row == 5) echo "<td>Descanso</td>";
+                        else echo "<td>Asignatura</td>";
+                    } else echo "<td></td>";
+                }
+            }
+            
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+?>
