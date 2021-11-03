@@ -1,0 +1,27 @@
+<?php
+    function verHorarios($ciclos){
+        array_map("horariosCiclos", $ciclos);
+    }
+
+    function horariosCiclos($txt){
+        echo "<h3>$txt</h3>";
+
+        $contenido = file("./txt/".$txt.".txt");
+        
+        for($i = 0; $i < sizeof($contenido); $i++){
+            $contenido[$i] = explode(',', $contenido[$i]);
+        }
+
+        print_r($contenido);
+       
+        echo "<table>";
+        for($j = 0; $j < sizeof($contenido); $j++){
+            echo "<tr>";
+            for($l = 0; $j < sizeof($contenido[$j]); $l++){
+                echo "<td>$contenido[$j][$l]</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+?>
