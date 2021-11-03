@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/ev1/formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Horarios Zayas</h1> <br>
+    <?php
+    include("Ejercicio4.1-Functions-H7.php");
+    include("Ejercicio4.1-Arrays-H7.php");
+
+    //verHorarios($ciclos);
+
+    echo <<<nre
+    <br><br><br>
+    <a href=/1ev/Hoja7/IndexEjercicio4-H7.html>Volver al menú</a>
+    nre;    
+    ?>
+    </div>
+    </body>
+</html>
