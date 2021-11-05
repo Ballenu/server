@@ -1,0 +1,57 @@
+<?php
+    function form(){
+        echo <<<jg
+        <form action="#" method="POST" enctype="multipart/form-data">
+        <label>Introduce año</label><br><br>
+        <input type="number" name="año"><br><br><br>
+        <label>Introduce mes</label><br><br>
+        <input type="number" name="mes"><br><br><br><br>
+        <input type="submit" value="Ver calendario">
+        </form>
+        jg;
+    }
+    function calendario_mensual($año, $mes){
+        include("Ejercicio2-Arrays-H8.php");
+
+        $nombre_mes = $meses[$mes - 1];
+
+        //Parte estática
+        echo <<<al
+            <table>
+                <h2>$nombre_mes de $año</h2>
+                <tr>
+        al;      
+        foreach($dias as $day){
+            echo "<td>$day</td>";
+        }
+        echo "</tr>";
+
+        //Calendario
+        $bisiesto = date("L", strtotime($año."-01-01"));
+        $nDias = date("t", strtotime($año."-".$mes."-01"));
+        $nDiaSem = date("N", strtotime($año."-".$mes."-01"));
+
+        $nCasillas = 0;
+        
+        for($i = 0; $i <= $nDias; $i++){
+            if($nCasillas % 7 === 0 && $nCasillas !== 0) echo "</tr><tr>";
+            if($i == 0){
+                for($j = 1; $j < $nDiaSem; $j++){
+                    echo "<td></td>";
+                    $nCasillas++;
+                }
+            } else {
+                echo "<td>$i</td>";
+                $nCasillas++;
+            }
+        }
+        
+        if($nCasillas % 7 !== 0){
+            for($c = $nCasillas; $c % 7 != 0; $c++){
+                echo "<td></td>";
+            }
+        }
+
+        echo "</tr></table>";
+    }
+?>
