@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/ev1/formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Ver calendario</h1> <br>
+    <?php
+    include("Ejercicio2-Functions-H8.php");
+
+    if(isset($_POST['año'], $_POST['mes'])){
+        $año = $_POST['año'];
+        $mes = $_POST['mes'];
+        calendario_mensual($año, $mes);
+    } else {
+        form();
+    }
+
+    //calendario_mensual(2010, 6);
+
+    echo <<<uy
+    <br><br><br>
+    <a href=/1ev/Hoja8/IndexHoja8.html>Volver al menú</a>
+    uy;    
+    ?>
+    </div>
+    </body>
+</html>
