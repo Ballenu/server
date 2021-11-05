@@ -1,0 +1,30 @@
+<?php
+$d = date("d");
+$m = date("m");
+$a = date("Y");
+$fecha = date("d-m-Y");
+$fecha_mañana = ($d + 1)."-".$m."-".$a;
+$hora_actual = date("g:i:s");
+switch(date("l")){
+    case "Monday":
+        $s = 7;
+        break;
+    case "Tuesday":
+        $s = 6;
+        break;
+    case "Wendsday":
+        $s = 5;
+        break;
+    case "Thursday":
+        $s = 4;
+        break;
+    case "Friday":
+        $s = 3;
+        break;
+}
+if($d > 31) $s1 = 1;
+else $s1 = 0;
+if($m > 12) $s2 = 1;
+else $s2 = 0;
+$fecha_prox_lunes = ($d + $s)."-".($m + $s1)."-".($a + $s2);
+?>
