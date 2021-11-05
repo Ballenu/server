@@ -1,0 +1,11 @@
+<?php
+    function form2(){
+        echo <<<jg
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label>Introduce un año</label><br><br>
+            <input type="number" name="año"><br><br><br>
+            <input type="submit" value="Ver calendario">
+        </form>
+        jg;
+    }
+?>
