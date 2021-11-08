@@ -1,0 +1,19 @@
+<?php
+    function form3(){
+        echo <<<jrg
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label>Introduce un año</label><br><br>
+            <input type="number" name="año"><br><br><br>
+            <input type="submit" value="Ver calendario">
+        </form>
+        jrg;
+    }
+
+    function calendario_anual($año){
+        include("Ejercicio2-Functions-H8.php");
+
+        for($i = 1; $i <= 12; $i++){
+            array_walk($i, calendario_mensual($año, $i));
+        }      
+    }
+?>
