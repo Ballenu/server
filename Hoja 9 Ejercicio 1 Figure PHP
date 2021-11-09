@@ -1,0 +1,14 @@
+<?php
+$color = $_GET['color'];
+$color_bg = $_GET['color_bg'];
+
+$imagen = imagecreate(250, 250);
+
+imagefilledrectangle($imagen, 0, 0, 249, 249, $color_bg);
+
+imagefilledrectangle($imagen, 20, 230, 230, 20, $color);
+
+header('Content-type: image/png');
+imagepng($imagen);
+imagedestroy($imagen);
+?>
