@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/ev1/formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Captcha</h1> <br>
+    <?php
+    echo "<img src=Ejercicio3-Figure-H9.php></img>";
+
+
+
+    echo <<<uiy
+    <br><br><br>
+    <a href=/1ev/Hoja9/IndexHoja9.html>Volver al menú</a>
+    uiy;    
+    ?>
+    </div>
+    </body>
+</html>
