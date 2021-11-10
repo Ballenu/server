@@ -6,33 +6,9 @@
     </head>
     <body>
     <div class="formulario">
-    <h1>Color imagen</h1> <br>
-    <form action="#" method="POST" enctype="multipart/form-data">
-        <label>Introduce el color de fondo de la imagen</label> <br><br>
-        <input type="color" name="c_img_bg"> <br><br><br>
-
-        <label>Introduce el color de la imagen</label> <br><br>
-        <input type="color" name="c_img"> <br><br><br><br>
-
-        <input type="submit" value="Enviar"> <br><br><br>
-
-    </form>
-    <?php
-
-    include("SpecificFunctions.php");
-
-    if(isset($_POST['c_img_bg'], $_POST['c_img'])){
-        $color = $_POST['c_img'];
-        $color = hexToRgb($color);
-        $color_img = implode(', ', $color);
-
-        $color_bg = $_POST['c_img_bg'];
-        $color_bg = hexToRgb($color_bg);
-        $color_img_bg = implode(',', $color_bg);
-        
-
-        echo "<img src=Ejercicio1-Figure-H9.php?color=$color_img&color_bg=$color_img_bg></img>";
-    }
+    <h1>Imagen</h1> <br>
+    <?php 
+    echo "<img src=Ejercicio1-Figure-H9.php></img>";
     
 
     echo <<<ury
