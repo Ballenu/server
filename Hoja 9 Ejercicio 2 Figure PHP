@@ -1,0 +1,32 @@
+<?php
+include("Ejercicio3-Functions-H9.php");
+
+//Crear imagen
+$ancho = 250;
+$alto = 150;
+
+$imagen = imagecreate($ancho, $alto);
+
+//Colores
+$fondo = imagecolorallocate($imagen, randomColor(), randomColor(), randomColor());
+
+//Color de fondo
+imagefill($imagen, 0, 0, $fondo);
+
+//Creación de texto
+$longitud_texto = rand(5, 10);
+$fuente = "/wamp64/www/ev1/fuentes/Lato-Black.ttf";
+
+$x = rand(0, $ancho);
+$y = rand(0, $alto - 50);
+
+for($i = 1; $i <= $longitud_texto; $i++){    
+    imagettftext($imagen, rand(10, 20), randomAngle(false), $x, $y, randomColor(), $fuente, randomChar());
+    $x += 20;
+}
+
+
+header("Content-type: image/png");
+imagepng($imagen);
+imagedestroy($imagen);
+?>
