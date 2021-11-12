@@ -8,13 +8,12 @@
         return substr(str_shuffle($caracteres), 0, 1);
     }
 
-    function randomAngle($negatives){
+    function randomAngle($negatives, $max_angle){
+        if($max_angle > 360) $max_angle = 360;
         if($negatives == true){
-            return rand(-360, 360);
+            return rand(-360, $max_angle);
         } else {
-            return rand(0, 360);
+            return rand(0, $max_angle);
         }
-        
-
     }
 ?>
