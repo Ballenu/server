@@ -1,0 +1,57 @@
+<?php
+    function form($idioma){
+        switch($idioma){
+            case 'ES':
+                echo <<<es
+                    <form action=# method=POST enctype=multipart/form-data>
+                        <label>Elige un idioma</label><br><br>
+                        <select name=idioma>
+                            <option value=ES>ES</option>
+                            <option value=EN>EN</option>
+                            <option value=FR>FR</option>
+                        </select><br><br>
+                        <label>Elige un color de fondo</label><br><br>
+                        <input type=color name=c_fondo><br><br>
+                        <label>Elige un color de letra</label><br><br>
+                        <input type=color name=c_letra><br><br><br>
+                        <input type=submit name=submit value=Enviar>
+                    </form>
+                es;
+                break;
+            case 'EN':
+                echo <<<en
+                    <form action=# method=POST enctype=multipart/form-data>
+                        <label>Choose a language</label><br><br>
+                        <select name=idioma>
+                            <option value=EN>EN</option>
+                            <option value=ES>ES</option>
+                            <option value=FR>FR</option>
+                        </select><br><br>
+                        <label>Choose a background color</label><br><br>
+                        <input type=color name=c_fondo><br><br>
+                        <label>Choose a font color</label><br><br>
+                        <input type=color name=c_letra><br><br><br>
+                        <input type=submit name=submit value=Send>
+                    </form>
+                en;
+                break;
+            case 'FR':
+                echo <<<fr
+                    <form action=# method=POST enctype=multipart/form-data>
+                        <label>Choisissez une langue</label><br><br>
+                        <select name=idioma>
+                            <option value=ES>ES</option>
+                            <option value=EN>EN</option>
+                            <option value=FR>FR</option>
+                        </select><br><br>
+                        <label>Choisissez une couleur de fond</label><br><br>
+                        <input type=color name=c_fondo><br><br>
+                        <label>Choisissez une couleur de police</label><br><br>
+                        <input type=color name=c_letra><br><br><br>
+                        <input type=submit name=submit value=Envoyer>
+                    </form>
+                fr;
+                break;
+        }
+    }
+?>
