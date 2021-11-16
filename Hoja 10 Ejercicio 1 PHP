@@ -17,11 +17,13 @@
         $c_fondo = $_POST['c_fondo'];
         $c_letra = $_POST['c_letra'];
 
-        $duracion_cookie = 9999;
-
-        setcookie("idioma", $idioma, $duracion_cookie);
+        $duracion_cookie = time() + 3600;
+        
+        setcookie("preferencias", json_encode([$idioma, $c_fondo, $c_letra]), $duracion_cookie);
+        
+        /*setcookie("idioma", $idioma, $duracion_cookie);
         setcookie("c_fondo", $c_fondo, $duracion_cookie);
-        setcookie("c_letra", $c_letra, $duracion_cookie);
+        setcookie("c_letra", $c_letra, $duracion_cookie);*/
 
         echo "<div style=background-color:$c_fondo><div style=color:$c_letra>";
         form($idioma);
