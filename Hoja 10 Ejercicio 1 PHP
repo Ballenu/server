@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/ev1/formstyle.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Cookies</h1> <br>
+    <?php
+    include('Ejercicio1-Functions-H10.php');
+
+    if(!isset($_POST['submit'])){
+        form('ES');
+    }else {
+        $idioma = $_POST['idioma'];
+        $c_fondo = $_POST['c_fondo'];
+        $c_letra = $_POST['c_letra'];
+
+        $duracion_cookie = 9999;
+
+        setcookie("idioma", $idioma, $duracion_cookie);
+        setcookie("c_fondo", $c_fondo, $duracion_cookie);
+        setcookie("c_letra", $c_letra, $duracion_cookie);
+
+        echo "<div style=background-color:$c_fondo><div style=color:$c_letra>";
+        form($idioma);
+        echo "</div></div>";
+    }
+    ?>
+    </div>
+    </body>
+</html>
