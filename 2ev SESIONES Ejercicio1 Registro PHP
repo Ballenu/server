@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/2ev/style.css">
+    </head>
+    <body>
+    <div class="formulario">
+    <h1>Registro</h1>
+    <?php
+    session_name("ejercicio1");
+    session_start();
+
+    if(!isset($_POST["enviado"])){
+        form("registro");
+    } else if(!isset($_SESSION["nombre"])){
+        //Declaración de sesiones
+        $_SESSION["nombre"] = $_POST["nombre"];
+        $_SESSION["apellidos"] = $_POST["apellidos"];
+        $_SESSION["direccion"] = $_POST["direccion"];
+        $_SESSION["tlfn"] = $_POST["tlfn"];
+        $_SESSION["provincia"] = $_POST["provincia"];
+
+        //Declaración de variables locales
+        $nombre = $_SESSION["nombre"];
+        $apellidos = $_SESSION["apellidos"];
+        $direccion = $_SESSION["direccion"];
+        $tlfn = $_SESSION["tlfn"];
+        $provincia = $_SESSION["provincia"];
+
+        //Declaración de cookies
+        $duracion_cookie = time() + 3600;
+        setcookie("registro", json_encode([$nombre, $apellidos, $direccion, $tlfn, $provincia]), $duracion_cookie);
+
+        //Redirección a otra página para el tratamiento de datos
+        header('Location: Ejercicio1-InicioSesion.php');
+    }
+    ?>
+    </div>
+    </body>
+</html>
