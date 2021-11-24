@@ -8,6 +8,33 @@
     <div class="formulario">
     <h1>Inicio de sesión</h1>
     <?php
+    session_name("ejercicio1");
+    session_start();
+    include('Ejercicio1-Functions.php');
+
+        if(isset($_GET['info'])){
+            echo <<<info
+                Nombre de usuario: $_SESSION[nombre_u] <br>
+                Nombre: $_SESSION[nombre] <br>
+                Apellidos: $_SESSION[apellidos] <br>
+                DNI: $_SESSION[dni] <br>
+                Ciudad: $_SESSION[ciudad] <br>
+                Código Postal: $_SESSION[cod_post] <br>
+                País:  $_SESSION[pais] <br>
+                Contraseña:  $_SESSION[contraseña] <br>
+            info;
+            session_destroy();
+            unset($_SESSION);
+            //unset($_COOKIE['registro']);
+        } else if(!isset($_POST['nombre_inses'])){
+            form('inicio_sesion');
+        } else if($_POST['nombre_inses'] == $_SESSION['nombre_u'] && $_POST['contraseña_inses'] == $_SESSION['contraseña']){
+                echo "<h2>Bienvenido $_SESSION[nombre]</h2>";
+                echo "<a href=$_SERVER[PHP_SELF]?info=ver>Información de la cuenta</a>";
+        } else {
+            form('inicio_sesion');
+            echo "<br><br> <p style=color:red;>El nombre o contraseña es erróneo.</p>";
+        }
     ?>
 </div>
 </body>
