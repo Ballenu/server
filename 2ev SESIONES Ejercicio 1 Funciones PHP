@@ -3,26 +3,38 @@
         if($tipo == "registro"){
             echo <<<registro
             <form action=# method=POST enctype=multipart/form-data>
+                <label>Introduce un nombre de usuario</label> <br><br>
+                <input type=text name=nombre_u required> <br><br>
                 <label>Introduce tu nombre</label> <br><br>
                 <input type=text name=nombre required> <br><br>
                 <label>Introduce tus apellidos</label> <br><br>
                 <input type=text name=apellidos required> <br><br>
-                <label>Introduce tu dirección</label> <br><br>
-                <input type=text name=direccion required> <br><br>
-                <label>Introduce tu número de teléfono</label> <br><br>
-                <input type=number name=tlfn required> <br><br>
-                <label>Introduce tu provincia</label> <br><br>
-                <input type=text name=provincia required> <br><br><br>
+                <label>Introduce DNI</label> <br><br>
+                <input type=text name=dni required> <br><br>
+                <label>Introduce tu ciudad</label> <br><br>
+                <input type=text name=ciudad required> <br><br>
+                <label>Introduce tu código postal</label> <br><br>
+                <input type=number name=cod_post required> <br><br>
+                <label>Introduce tu país</label> <br><br>
+                <input type=text name=pais required> <br><br>
+                <label>Introduce tus estudios</label> <br><br>
+                <input type=text name=estudios required> <br><br>
+                <label>Introduce los idiomas que hablas</label> <br><br>
+                <input type=text name=idiomas required> <br><br>
+                <label>Introduce una contraseña</label> <br><br>
+                <input type=password name=contraseña required> <br><br>
+                <label>Repita la contraseña</label> <br><br>
+                <input type=password name=contraseña2 required> <br><br><br>
                 <input type=submit name=enviado value=Registrar>
             </form>
             registro;
         } else {
             echo <<<iniciar_sesion
             <form action=# method=POST enctype=multipart/form-data>
-                <label>Introduce tu nombre</label> <br><br>
-                <input type=text name=nombre required> <br><br>
-                <label>Introduce tu número de teléfono</label> <br><br>
-                <input type=number name=tlfn required> <br><br><br>
+                <label>Introduce tu nombre de usuario</label> <br><br>
+                <input type=text name=nombre_inses required> <br><br>
+                <label>Introduce tu contraseña</label> <br><br>
+                <input type=password name=contraseña_inses required> <br><br><br>
                 <input type=submit name=enviado value="Inciar sesión">
             </form>
             iniciar_sesion;
