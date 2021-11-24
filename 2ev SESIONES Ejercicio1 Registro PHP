@@ -11,29 +11,82 @@
     session_name("ejercicio1");
     session_start();
 
-    if(!isset($_POST["enviado"])){
+    include("Ejercicio1-Functions.php");
+
+    if(!isset($_POST["contraseña"]) && !isset($_GET['checked'])){
         form("registro");
-    } else if(!isset($_SESSION["nombre"])){
-        //Declaración de sesiones
-        $_SESSION["nombre"] = $_POST["nombre"];
-        $_SESSION["apellidos"] = $_POST["apellidos"];
-        $_SESSION["direccion"] = $_POST["direccion"];
-        $_SESSION["tlfn"] = $_POST["tlfn"];
-        $_SESSION["provincia"] = $_POST["provincia"];
-
-        //Declaración de variables locales
-        $nombre = $_SESSION["nombre"];
-        $apellidos = $_SESSION["apellidos"];
-        $direccion = $_SESSION["direccion"];
-        $tlfn = $_SESSION["tlfn"];
-        $provincia = $_SESSION["provincia"];
-
-        //Declaración de cookies
-        $duracion_cookie = time() + 3600;
-        setcookie("registro", json_encode([$nombre, $apellidos, $direccion, $tlfn, $provincia]), $duracion_cookie);
-
-        //Redirección a otra página para el tratamiento de datos
-        header('Location: Ejercicio1-InicioSesion.php');
+    } else {
+        if(!isset($_GET['check']) || isset($_GET['checked'])){
+            $_SESSION["nombre_u"] = $_POST["nombre_u"];
+            $_SESSION["nombre"] = $_POST["nombre"];
+            $_SESSION["apellidos"] = $_POST["apellidos"];
+            $_SESSION["dni"] = $_POST["dni"];
+            $_SESSION["ciudad"] = $_POST["ciudad"];
+            $_SESSION["cod_post"] = $_POST["cod_post"];
+            $_SESSION["pais"] = $_POST["pais"];
+            $_SESSION["estudios"] = $_POST["estudios"];
+            $_SESSION["idiomas"] = $_POST["idiomas"];
+            //Comprobación que la letra del DNI es correcta.
+            $letras_dni = array('T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E');
+            $nletra_dni = 0;
+            for($i = 0; $i < strlen($_POST["dni"]) - 1; $i++){
+                $nletra_dni += substr($_POST["dni"], $i, 1);
+            }
+            $nletra_dni /= 23;
+            $nletra_dni = substr($nletra_dni, 0, 1);
+            if($letras_dni[$nletra_dni] != substr($_POST["dni"], strlen($_POST["dni"]) - 1, 1)){
+                form("registro");
+                echo "<br><br> <p style=color:red;> La letra del DNI introducida era errónea </p>";
+            } else if($_POST['contraseña'] != $_POST['contraseña2']){
+                //Comprobación de contraseña
+                echo <<<rep_cont
+                    ¡Las contraseñas no coinciden! Repita la contraseña. <br><br>
+                    <form action=$_SERVER[PHP_SELF]?check=0 method=POST enctype=multipart/form-data>
+                        <label>Introduce una contraseña</label> <br><br>
+                        <input type=password name=contraseña required> <br><br>
+                        <label>Repita la contraseña</label> <br><br>
+                        <input type=password name=contraseña2 required> <br><br><br>
+                        <input type=submit value="Terminar registro">
+                rep_cont;
+            } else {
+                //Declaración de sesiones
+                $_SESSION["nombre_u"] = $_POST["nombre_u"];
+                $_SESSION["nombre"] = $_POST["nombre"];
+                $_SESSION["apellidos"] = $_POST["apellidos"];
+                $_SESSION["dni"] = $_POST["dni"];
+                $_SESSION["ciudad"] = $_POST["ciudad"];
+                $_SESSION["cod_post"] = $_POST["cod_post"];
+                $_SESSION["pais"] = $_POST["pais"];
+                $_SESSION["estudios"] = $_POST["estudios"];
+                $_SESSION["idiomas"] = $_POST["idiomas"];
+                $_SESSION["contraseña"] = $_POST["contraseña"];
+        
+        
+                //Declaración de cookies
+                //$duracion_cookie = time() + 3600;
+        
+                //setcookie("registro", json_encode([$_SESSION["nombre_u"], $_SESSION["nombre"], $_SESSION["apellidos"], $_SESSION["dni"], $_SESSION["ciudad"], $_SESSION["cod_post"], $_SESSION["pais"], $_SESSION["estudios"], $_SESSION["idiomas"], $_SESSION["contraseña"]]), $duracion_cookie);   
+        
+                //Redirección a otra página para el tratamiento de datos
+                header('Location: Ejercicio1-InicioSesion.php');
+            }
+        } else {
+            if($_POST['contraseña'] != $_POST['contraseña2']){
+                //Comprobación de contraseña
+                echo <<<rep_cont
+                    ¡Las contraseñas no coinciden! Repita la contraseña. <br><br>
+                    <form action=$_SERVER[PHP_SELF]?check=0 method=POST enctype=multipart/form-data>
+                        <label>Introduce una contraseña</label> <br><br>
+                        <input type=password name=contraseña required> <br><br>
+                        <label>Repita la contraseña</label> <br><br>
+                        <input type=password name=contraseña2 required> <br><br><br>
+                        <input type=submit value="Terminar registro">
+                rep_cont;
+        } else {
+            $_SESSION["contraseña"] = $_POST["contraseña"];
+            header('Location: Ejercicio1-InicioSesion.php');
+        }
+    }
     }
     ?>
     </div>
