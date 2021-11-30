@@ -1,0 +1,43 @@
+<?php
+    include('ahorcado-arrays.php');
+
+    function pintarTeclas($teclas){
+        $c = 0;
+        echo "<div class=teclas><form action=# method=POST enctype=multipart/form-data>";
+        foreach($teclas as $letra) {
+            if($c % 7 == 0) {
+                echo "<br><br>";
+            }
+            echo "<input type=radio name=letra value=$letra class=letra>$letra";
+            $c++;
+        }
+        echo "<br><br><br><input type=submit name=enviado value=Confirmar>";
+        echo "</form></div>";
+    }
+
+    function elegirPalabra($palabras){
+        $n_palabra = rand(0, sizeof($palabras) - 1);
+
+        return $palabras[$n_palabra];
+    }
+
+    function pintarPalabra($palabra, $aciertos){
+        $c_aciertos = $aciertos;
+        for($i = 0; $i < strlen($palabra); $i++){
+            if($c_aciertos != 0) {
+                echo "<span class=c_palabra>".substr($palabra, $i, 1)."</span>";
+                $c_aciertos--;
+            } else {
+                echo "<span class=c_palabra>X</span>";
+            }
+        }
+    }
+
+    function detruirSesion(){
+        unset($_SESSION['palabra']);
+        unset($_SESSION['aciertos']);
+        unset($_SESSION['fallos']);
+        unset($_SESSION['letras_usadas']);
+        session_destroy();
+    }
+?>
