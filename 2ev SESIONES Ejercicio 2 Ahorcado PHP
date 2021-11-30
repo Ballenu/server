@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="ahorcado.css">
+    </head>
+    <body>
+    <h1>Ahorcado</h1>
+    <?php
+    session_name('ahorcado');
+    session_start();
+
+    include('ahorcado-functions.php');
+
+    if(!isset($_SESSION['palabra'])){
+        $_SESSION['palabra'] = elegirPalabra($palabras);
+        $_SESSION['aciertos'] = 0;
+        $_SESSION['fallos'] = 0;
+        $_SESSION['teclas'] = $abecedario;
+        $_SESSION['letras_usadas'] = array();
+        pintarPalabra($_SESSION['palabra'], $_SESSION['aciertos']);
+        pintarTeclas($_SESSION['teclas']);
+    } else {
+        if($_SESSION['fallos'] == 10){
+            echo "<h1 style=color:red;>¡Lastima! Has perdido.</h1>";
+            destruirSesion();
+        } else if($_SESSION['aciertos'] == strlen($_SESSION['palabra'])){
+            echo "<h1 style=color:green;>¡Enhorabuena! Has ganado</h1>";
+            echo "<br><br>La palabra era $_SESSION[palabra]";
+            destruirSesion();
+        } else {
+            //LETRAS USADAS
+            $letra_usada = $_POST['letra'];
+            array_push($_SESSION['letras_usadas'], $letra_usada);
+
+            //ACIERTOS
+            if($letra_usada == substr($_SESSION['palabra'], $_SESSION['aciertos'], 1)) {
+                $_SESSION['aciertos']++;
+            } else {
+                $_SESSION['fallos']++;
+            }
+
+            //MODIFICAR LETRAS DISPONIBLES
+            foreach($_SESSION['letras_usadas'] as $l){
+                if(in_array($l, $abecedario)){
+                    unset($_SESSION['teclas'][array_search($l, $abecedario)]);
+                }
+            }
+
+            //SIGUIENTE INTENTO
+            pintarPalabra($palabra, $_SESSION['aciertos']);
+            pintarTeclas($abecedario);
+        }
+
+        
+    }
+    ?>
+    </body>
+</html>
