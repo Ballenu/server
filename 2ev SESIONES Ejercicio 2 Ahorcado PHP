@@ -54,6 +54,7 @@
             //COMPROBAR CANTIDAD DE FALLOS Y ACIERTOS
             if($_SESSION['fallos'] > intval(strlen($_SESSION['palabra']) + 5)){
                 echo "<h1 style=color:red;>¡Lastima! Has perdido.</h1>";
+                echo "<br><br>La palabra era $_SESSION[palabra].";
                 destruirSesion();
             } else if($_SESSION['aciertos'] == strlen($_SESSION['palabra'])){
                 $_SESSION['palabra'] = strtoupper($_SESSION['palabra']);
