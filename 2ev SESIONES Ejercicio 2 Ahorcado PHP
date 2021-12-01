@@ -18,41 +18,54 @@
         $_SESSION['fallos'] = 0;
         $_SESSION['teclas'] = $abecedario;
         $_SESSION['letras_usadas'] = array();
-        pintarPalabra($_SESSION['palabra'], $_SESSION['aciertos']);
+        $_SESSION['posicion_aciertos'] = '';
+        pintarPalabra($_SESSION['palabra'], $_SESSION['aciertos'], $_SESSION['aciertos']);
         pintarTeclas($_SESSION['teclas']);
-    } else {
-        if($_SESSION['fallos'] == 10){
-            echo "<h1 style=color:red;>¡Lastima! Has perdido.</h1>";
-            destruirSesion();
-        } else if($_SESSION['aciertos'] == strlen($_SESSION['palabra'])){
-            echo "<h1 style=color:green;>¡Enhorabuena! Has ganado</h1>";
-            echo "<br><br>La palabra era $_SESSION[palabra]";
-            destruirSesion();
-        } else {
+    } else if(!empty($_POST['letra'])){
             //LETRAS USADAS
             $letra_usada = $_POST['letra'];
-            array_push($_SESSION['letras_usadas'], $letra_usada);
-
-            //ACIERTOS
-            if($letra_usada == substr($_SESSION['palabra'], $_SESSION['aciertos'], 1)) {
-                $_SESSION['aciertos']++;
-            } else {
-                $_SESSION['fallos']++;
+            $continuar_letra = false;
+            if(!in_array($letra_usada, $_SESSION['letras_usadas'])){
+                array_push($_SESSION['letras_usadas'], $letra_usada);
             }
-
+  
             //MODIFICAR LETRAS DISPONIBLES
             foreach($_SESSION['letras_usadas'] as $l){
                 if(in_array($l, $abecedario)){
                     unset($_SESSION['teclas'][array_search($l, $abecedario)]);
                 }
             }
+            
+            //AÑADIR ACIERTOS O FALLOS
+            $a = 0;
+            for($i = 0; $i < strlen($_SESSION['palabra']); $i++){
+                if(strtolower($letra_usada) == substr($_SESSION['palabra'], $i, 1)) {
+                    $_SESSION['posicion_aciertos'] .= $i."-";
+                    $a++;
+                }
+            }
 
-            //SIGUIENTE INTENTO
-            pintarPalabra($palabra, $_SESSION['aciertos']);
-            pintarTeclas($abecedario);
-        }
+            if($a != 0) {
+                $_SESSION['aciertos'] += $a;
+            } else {
+                $_SESSION['fallos']++;
+            }
 
-        
+            //COMPROBAR CANTIDAD DE FALLOS Y ACIERTOS
+            if($_SESSION['fallos'] > intval(strlen($_SESSION['palabra']) + 5)){
+                echo "<h1 style=color:red;>¡Lastima! Has perdido.</h1>";
+                destruirSesion();
+            } else if($_SESSION['aciertos'] == strlen($_SESSION['palabra'])){
+                $_SESSION['palabra'] = strtoupper($_SESSION['palabra']);
+                echo "<h1 style=color:green;>¡Enhorabuena! Has ganado</h1>";
+                echo "<br><br>La palabra era $_SESSION[palabra].";
+                destruirSesion();
+            } else {
+                //SIGUIENTE INTENTO
+                pintarPalabra($_SESSION['palabra'], $_SESSION['posicion_aciertos'], $_SESSION['aciertos']);
+                pintarTeclas($_SESSION['teclas']);
+            }
+
     }
     ?>
     </body>
